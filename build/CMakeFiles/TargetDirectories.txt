@@ -1,5 +1,6 @@
-/home/jd/Desktop/p4/build/application/CMakeFiles/application.dir
-/home/jd/Desktop/p4/build/math/CMakeFiles/math.dir
-/home/jd/Desktop/p4/build/p5/CMakeFiles/p5.dir
-/home/jd/Desktop/p4/build/scene/CMakeFiles/scene.dir
-/home/jd/Desktop/p4/build/tinyxml/CMakeFiles/tinyxml.dir
+/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/application/CMakeFiles/application.dir
+/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/glew/CMakeFiles/glew.dir
+/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/math/CMakeFiles/math.dir
+/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/p5/CMakeFiles/p5.dir
+/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/scene/CMakeFiles/scene.dir
+/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/tinyxml/CMakeFiles/tinyxml.dir

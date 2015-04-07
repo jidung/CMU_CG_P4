@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -110,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles /home/jd/Desktop/p4/build/tinyxml/CMakeFiles/progress.marks
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles 0
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/CMakeFiles /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/tinyxml/CMakeFiles/progress.marks
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/clean
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/preinstall
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/preinstall
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tinyxml/CMakeFiles/tinyxml.dir/rule:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/CMakeFiles/tinyxml.dir/rule
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 tinyxml/CMakeFiles/tinyxml.dir/rule
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/rule
 
 # Convenience name for target.
@@ -150,7 +153,7 @@ tinyxml: tinyxml/CMakeFiles/tinyxml.dir/rule
 
 # fast build rule for target.
 tinyxml/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/build
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/build
 .PHONY : tinyxml/fast
 
 tinyxml.o: tinyxml.cpp.o
@@ -158,7 +161,7 @@ tinyxml.o: tinyxml.cpp.o
 
 # target to build an object file
 tinyxml.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o
 .PHONY : tinyxml.cpp.o
 
 tinyxml.i: tinyxml.cpp.i
@@ -166,7 +169,7 @@ tinyxml.i: tinyxml.cpp.i
 
 # target to preprocess a source file
 tinyxml.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.i
 .PHONY : tinyxml.cpp.i
 
 tinyxml.s: tinyxml.cpp.s
@@ -174,7 +177,7 @@ tinyxml.s: tinyxml.cpp.s
 
 # target to generate assembly for a file
 tinyxml.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.s
 .PHONY : tinyxml.cpp.s
 
 tinyxmlerror.o: tinyxmlerror.cpp.o
@@ -182,7 +185,7 @@ tinyxmlerror.o: tinyxmlerror.cpp.o
 
 # target to build an object file
 tinyxmlerror.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o
 .PHONY : tinyxmlerror.cpp.o
 
 tinyxmlerror.i: tinyxmlerror.cpp.i
@@ -190,7 +193,7 @@ tinyxmlerror.i: tinyxmlerror.cpp.i
 
 # target to preprocess a source file
 tinyxmlerror.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.i
 .PHONY : tinyxmlerror.cpp.i
 
 tinyxmlerror.s: tinyxmlerror.cpp.s
@@ -198,7 +201,7 @@ tinyxmlerror.s: tinyxmlerror.cpp.s
 
 # target to generate assembly for a file
 tinyxmlerror.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.s
 .PHONY : tinyxmlerror.cpp.s
 
 tinyxmlparser.o: tinyxmlparser.cpp.o
@@ -206,7 +209,7 @@ tinyxmlparser.o: tinyxmlparser.cpp.o
 
 # target to build an object file
 tinyxmlparser.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o
 .PHONY : tinyxmlparser.cpp.o
 
 tinyxmlparser.i: tinyxmlparser.cpp.i
@@ -214,7 +217,7 @@ tinyxmlparser.i: tinyxmlparser.cpp.i
 
 # target to preprocess a source file
 tinyxmlparser.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.i
 .PHONY : tinyxmlparser.cpp.i
 
 tinyxmlparser.s: tinyxmlparser.cpp.s
@@ -222,7 +225,7 @@ tinyxmlparser.s: tinyxmlparser.cpp.s
 
 # target to generate assembly for a file
 tinyxmlparser.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f tinyxml/CMakeFiles/tinyxml.dir/build.make tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.s
 .PHONY : tinyxmlparser.cpp.s
 
 # Help Target
@@ -258,6 +261,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

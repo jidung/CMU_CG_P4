@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -110,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles /home/jd/Desktop/p4/build/p5/CMakeFiles/progress.marks
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles 0
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/CMakeFiles /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/p5/CMakeFiles/progress.marks
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/clean
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/preinstall
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/preinstall
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 p5/CMakeFiles/p5.dir/rule:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/CMakeFiles/p5.dir/rule
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 p5/CMakeFiles/p5.dir/rule
 .PHONY : p5/CMakeFiles/p5.dir/rule
 
 # Convenience name for target.
@@ -150,7 +153,7 @@ p5: p5/CMakeFiles/p5.dir/rule
 
 # fast build rule for target.
 p5/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/build
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/build
 .PHONY : p5/fast
 
 collisions.o: collisions.cpp.o
@@ -158,7 +161,7 @@ collisions.o: collisions.cpp.o
 
 # target to build an object file
 collisions.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/collisions.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/collisions.cpp.o
 .PHONY : collisions.cpp.o
 
 collisions.i: collisions.cpp.i
@@ -166,7 +169,7 @@ collisions.i: collisions.cpp.i
 
 # target to preprocess a source file
 collisions.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/collisions.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/collisions.cpp.i
 .PHONY : collisions.cpp.i
 
 collisions.s: collisions.cpp.s
@@ -174,7 +177,7 @@ collisions.s: collisions.cpp.s
 
 # target to generate assembly for a file
 collisions.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/collisions.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/collisions.cpp.s
 .PHONY : collisions.cpp.s
 
 main.o: main.cpp.o
@@ -182,7 +185,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/main.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -190,7 +193,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/main.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -198,7 +201,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/main.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 modelbody.o: modelbody.cpp.o
@@ -206,7 +209,7 @@ modelbody.o: modelbody.cpp.o
 
 # target to build an object file
 modelbody.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/modelbody.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/modelbody.cpp.o
 .PHONY : modelbody.cpp.o
 
 modelbody.i: modelbody.cpp.i
@@ -214,7 +217,7 @@ modelbody.i: modelbody.cpp.i
 
 # target to preprocess a source file
 modelbody.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/modelbody.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/modelbody.cpp.i
 .PHONY : modelbody.cpp.i
 
 modelbody.s: modelbody.cpp.s
@@ -222,7 +225,7 @@ modelbody.s: modelbody.cpp.s
 
 # target to generate assembly for a file
 modelbody.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/modelbody.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/modelbody.cpp.s
 .PHONY : modelbody.cpp.s
 
 physics.o: physics.cpp.o
@@ -230,7 +233,7 @@ physics.o: physics.cpp.o
 
 # target to build an object file
 physics.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/physics.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/physics.cpp.o
 .PHONY : physics.cpp.o
 
 physics.i: physics.cpp.i
@@ -238,7 +241,7 @@ physics.i: physics.cpp.i
 
 # target to preprocess a source file
 physics.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/physics.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/physics.cpp.i
 .PHONY : physics.cpp.i
 
 physics.s: physics.cpp.s
@@ -246,7 +249,7 @@ physics.s: physics.cpp.s
 
 # target to generate assembly for a file
 physics.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/physics.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/physics.cpp.s
 .PHONY : physics.cpp.s
 
 planebody.o: planebody.cpp.o
@@ -254,7 +257,7 @@ planebody.o: planebody.cpp.o
 
 # target to build an object file
 planebody.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/planebody.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/planebody.cpp.o
 .PHONY : planebody.cpp.o
 
 planebody.i: planebody.cpp.i
@@ -262,7 +265,7 @@ planebody.i: planebody.cpp.i
 
 # target to preprocess a source file
 planebody.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/planebody.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/planebody.cpp.i
 .PHONY : planebody.cpp.i
 
 planebody.s: planebody.cpp.s
@@ -270,7 +273,7 @@ planebody.s: planebody.cpp.s
 
 # target to generate assembly for a file
 planebody.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/planebody.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/planebody.cpp.s
 .PHONY : planebody.cpp.s
 
 spherebody.o: spherebody.cpp.o
@@ -278,7 +281,7 @@ spherebody.o: spherebody.cpp.o
 
 # target to build an object file
 spherebody.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spherebody.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spherebody.cpp.o
 .PHONY : spherebody.cpp.o
 
 spherebody.i: spherebody.cpp.i
@@ -286,7 +289,7 @@ spherebody.i: spherebody.cpp.i
 
 # target to preprocess a source file
 spherebody.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spherebody.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spherebody.cpp.i
 .PHONY : spherebody.cpp.i
 
 spherebody.s: spherebody.cpp.s
@@ -294,7 +297,7 @@ spherebody.s: spherebody.cpp.s
 
 # target to generate assembly for a file
 spherebody.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spherebody.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spherebody.cpp.s
 .PHONY : spherebody.cpp.s
 
 spring.o: spring.cpp.o
@@ -302,7 +305,7 @@ spring.o: spring.cpp.o
 
 # target to build an object file
 spring.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spring.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spring.cpp.o
 .PHONY : spring.cpp.o
 
 spring.i: spring.cpp.i
@@ -310,7 +313,7 @@ spring.i: spring.cpp.i
 
 # target to preprocess a source file
 spring.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spring.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spring.cpp.i
 .PHONY : spring.cpp.i
 
 spring.s: spring.cpp.s
@@ -318,7 +321,7 @@ spring.s: spring.cpp.s
 
 # target to generate assembly for a file
 spring.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spring.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/spring.cpp.s
 .PHONY : spring.cpp.s
 
 trianglebody.o: trianglebody.cpp.o
@@ -326,7 +329,7 @@ trianglebody.o: trianglebody.cpp.o
 
 # target to build an object file
 trianglebody.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/trianglebody.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/trianglebody.cpp.o
 .PHONY : trianglebody.cpp.o
 
 trianglebody.i: trianglebody.cpp.i
@@ -334,7 +337,7 @@ trianglebody.i: trianglebody.cpp.i
 
 # target to preprocess a source file
 trianglebody.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/trianglebody.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/trianglebody.cpp.i
 .PHONY : trianglebody.cpp.i
 
 trianglebody.s: trianglebody.cpp.s
@@ -342,7 +345,7 @@ trianglebody.s: trianglebody.cpp.s
 
 # target to generate assembly for a file
 trianglebody.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/trianglebody.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f p5/CMakeFiles/p5.dir/build.make p5/CMakeFiles/p5.dir/trianglebody.cpp.s
 .PHONY : trianglebody.cpp.s
 
 # Help Target
@@ -393,6 +396,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

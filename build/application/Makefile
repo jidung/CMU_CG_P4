@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -110,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles /home/jd/Desktop/p4/build/application/CMakeFiles/progress.marks
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 application/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles 0
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/CMakeFiles /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/application/CMakeFiles/progress.marks
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 application/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 application/clean
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 application/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 application/preinstall
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 application/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 application/preinstall
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 application/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 application/CMakeFiles/application.dir/rule:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 application/CMakeFiles/application.dir/rule
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f CMakeFiles/Makefile2 application/CMakeFiles/application.dir/rule
 .PHONY : application/CMakeFiles/application.dir/rule
 
 # Convenience name for target.
@@ -150,7 +153,7 @@ application: application/CMakeFiles/application.dir/rule
 
 # fast build rule for target.
 application/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/build
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/build
 .PHONY : application/fast
 
 application.o: application.cpp.o
@@ -158,7 +161,7 @@ application.o: application.cpp.o
 
 # target to build an object file
 application.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/application.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/application.cpp.o
 .PHONY : application.cpp.o
 
 application.i: application.cpp.i
@@ -166,7 +169,7 @@ application.i: application.cpp.i
 
 # target to preprocess a source file
 application.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/application.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/application.cpp.i
 .PHONY : application.cpp.i
 
 application.s: application.cpp.s
@@ -174,7 +177,7 @@ application.s: application.cpp.s
 
 # target to generate assembly for a file
 application.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/application.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/application.cpp.s
 .PHONY : application.cpp.s
 
 camera_roam.o: camera_roam.cpp.o
@@ -182,7 +185,7 @@ camera_roam.o: camera_roam.cpp.o
 
 # target to build an object file
 camera_roam.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.o
 .PHONY : camera_roam.cpp.o
 
 camera_roam.i: camera_roam.cpp.i
@@ -190,7 +193,7 @@ camera_roam.i: camera_roam.cpp.i
 
 # target to preprocess a source file
 camera_roam.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.i
 .PHONY : camera_roam.cpp.i
 
 camera_roam.s: camera_roam.cpp.s
@@ -198,7 +201,7 @@ camera_roam.s: camera_roam.cpp.s
 
 # target to generate assembly for a file
 camera_roam.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.s
 .PHONY : camera_roam.cpp.s
 
 imageio.o: imageio.cpp.o
@@ -206,7 +209,7 @@ imageio.o: imageio.cpp.o
 
 # target to build an object file
 imageio.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/imageio.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/imageio.cpp.o
 .PHONY : imageio.cpp.o
 
 imageio.i: imageio.cpp.i
@@ -214,7 +217,7 @@ imageio.i: imageio.cpp.i
 
 # target to preprocess a source file
 imageio.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/imageio.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/imageio.cpp.i
 .PHONY : imageio.cpp.i
 
 imageio.s: imageio.cpp.s
@@ -222,7 +225,7 @@ imageio.s: imageio.cpp.s
 
 # target to generate assembly for a file
 imageio.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/imageio.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/imageio.cpp.s
 .PHONY : imageio.cpp.s
 
 scene_loader.o: scene_loader.cpp.o
@@ -230,7 +233,7 @@ scene_loader.o: scene_loader.cpp.o
 
 # target to build an object file
 scene_loader.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/scene_loader.cpp.o
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/scene_loader.cpp.o
 .PHONY : scene_loader.cpp.o
 
 scene_loader.i: scene_loader.cpp.i
@@ -238,7 +241,7 @@ scene_loader.i: scene_loader.cpp.i
 
 # target to preprocess a source file
 scene_loader.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/scene_loader.cpp.i
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/scene_loader.cpp.i
 .PHONY : scene_loader.cpp.i
 
 scene_loader.s: scene_loader.cpp.s
@@ -246,7 +249,7 @@ scene_loader.s: scene_loader.cpp.s
 
 # target to generate assembly for a file
 scene_loader.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/scene_loader.cpp.s
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/scene_loader.cpp.s
 .PHONY : scene_loader.cpp.s
 
 # Help Target
@@ -285,6 +288,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

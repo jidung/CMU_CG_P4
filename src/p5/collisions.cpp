@@ -66,33 +66,46 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
     vToP = p - v1;
     w = dot (n, cross(edge, vToP));
     
-    edge = v3 - v2;
-    vToP = p - v2;
-    u = dot (n, cross(edge, vToP));
+	if ( w < 0 ) {
+            p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
+            if ( distance(p1, p_) < body1.radius) {
+                //std::cout << "Sphere-Triangle collision detected2" << std::endl;
+                return true;
+            }
+	    return false;
+	}
 
-    edge = v1 - v3;
-    vToP = p - v3;
-    v = dot (n, cross(edge, vToP));
+        edge = v3 - v2;
+        vToP = p - v2;
+        u = dot (n, cross(edge, vToP));
 
-    if ( w >= 0 && u >= 0 && v >= 0) {
+	if ( u < 0 ) {
+            p_ = dot(p-v2, v3-v2) * (v3-v2) / squared_length(v3-v2) + v2;
+            if ( distance(p1, p_) < body1.radius ) {
+                //std::cout << "Sphere-Triangle collision detected3" << std::endl;
+                return true;
+            }
+	    return false;
+	}
+
+        edge = v1 - v3;
+        vToP = p - v3;
+        v = dot (n, cross(edge, vToP));
+
+	if ( v < 0 ) {
+            p_ = dot(p-v3, v1-v3) * (v1-v3) / squared_length(v1-v3) + v3;
+            if ( distance(p1, p_) < body1.radius) {
+                //std::cout << "Sphere-Triangle collision detected4" << std::endl;
+                return true;
+            }
+	    return false;
+	}
+
         if ( fabs(d) < body1.radius )
-        {  
-            std::cout << "Sphere-triangle collision detected" << std::endl;
+        {
+            //std::cout << "Sphere-Triangle collision detected1" << std::endl;
             return true;
         }
-    }
-    else
-    {
-        p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
-        if ( squared_distance(p1, p_) < body1.radius * body1.radius)
-            return true;
-        p_ = dot(p-v1, v3-v1) * (v3-v1) / squared_length(v3-v1) + v1;
-        if ( squared_distance(p1, p_) < body1.radius * body1.radius)
-            return true;
-        p_ = dot(p-v3, v2-v3) * (v2-v3) / squared_length(v2-v3) + v3;
-        if ( squared_distance(p1, p_) < body1.radius * body1.radius)
-            return true;
-    }
 
     // collides
     
@@ -102,7 +115,6 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
     u = u / squared_length_normal;
     w = 1 - v - u;
     */
-
 
     return false;
 }
@@ -169,44 +181,49 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         vToP = p - v1;
         w = dot (n, cross(edge, vToP));
 
+	if ( w < 0 ) {
+            p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
+            if ( distance(p1, p_) < body1.radius) {
+                std::cout << "Sphere-Model collision detected2" << std::endl;
+                return true;
+            }
+	    continue;
+	}
+
         edge = v3 - v2;
         vToP = p - v2;
         u = dot (n, cross(edge, vToP));
+
+	if ( u < 0 ) {
+            p_ = dot(p-v2, v3-v2) * (v3-v2) / squared_length(v3-v2) + v2;
+            if ( distance(p1, p_) < body1.radius ) {
+                std::cout << "Sphere-Model collision detected3" << std::endl;
+                return true;
+            }
+	    continue;
+	}
 
         edge = v1 - v3;
         vToP = p - v3;
         v = dot (n, cross(edge, vToP));
 
-        if ( w >= 0 && u >= 0 && v >= 0) {
-            if ( fabs(d) < body1.radius )
-            {
-                std::cout << "Sphere-Model collision detected1" << std::endl;
-                return true;
-            }
-        }
-        else
-        {
-            /*
-            p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
-            if ( squared_distance(p1, p_) < body1.radius * body1.radius) {
-                std::cout << "Sphere-Model collision detected2" << std::endl;
-                return true;
-            }
-            p_ = dot(p-v1, v3-v1) * (v3-v1) / squared_length(v3-v1) + v1;
-            if ( squared_distance(p1, p_) < body1.radius * body1.radius ) {
-                std::cout << "Sphere-Model collision detected3" << std::endl;
-                return true;
-            }
-            p_ = dot(p-v3, v2-v3) * (v2-v3) / squared_length(v2-v3) + v3;
-            if ( squared_distance(p1, p_) < body1.radius * body1.radius) {
+	if ( v < 0 ) {
+            p_ = dot(p-v3, v1-v3) * (v1-v3) / squared_length(v1-v3) + v3;
+            if ( distance(p1, p_) < body1.radius) {
                 std::cout << "Sphere-Model collision detected4" << std::endl;
                 return true;
             }
-            */
+	    continue;
+	}
+
+        if ( fabs(d) < body1.radius )
+        {
+            std::cout << "Sphere-Model collision detected1" << std::endl;
+            return true;
         }
     }
 
-    std::cout << "Sphere-Model collision NOT detected" << std::endl;
+    //std::cout << "Sphere-Model collision NOT detected" << std::endl;
     return false;
 }
 
