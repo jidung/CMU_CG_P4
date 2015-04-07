@@ -28,7 +28,8 @@ Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
     // scheme
     // TODO return the delta in position dt in the future
 
-    return Vector3::Zero();
+    //return Vector3::Zero();
+    return Vector3 (0.0, 0.001, 0.00);
 }
 
 Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
@@ -47,6 +48,7 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
 void SphereBody::apply_force( const Vector3& f, const Vector3& offset )
 {
     // TODO apply force/torque to sphere
+    force = f;
 }
 
 }

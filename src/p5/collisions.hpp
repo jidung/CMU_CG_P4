@@ -7,6 +7,8 @@
 #include "p5/planebody.hpp"
 #include "p5/modelbody.hpp"
 
+#include "scene/model.hpp"  // m.ji
+
 namespace _462 {
 
 bool collides( SphereBody& body1, SphereBody& body2, real_t collision_damping );

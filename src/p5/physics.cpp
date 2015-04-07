@@ -14,6 +14,31 @@ Physics::~Physics()
 
 void Physics::step( real_t dt )
 {
+    for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
+        (*i)->apply_force ( Vector3 (0.001, 0.0, 0.0), Vector3 (0.1, 0.1, 0.1) );
+        (*i)->position += (*i)->step_position(dt, 0.0);
+        (*i)->sphere->position = (*i)->position;
+    
+        for ( PlaneList::iterator j = planes.begin(); j != planes.end(); j++ ) {
+            collides ( *(*i), *(*j), 0.0 );
+        }
+        
+        for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) {
+            collides ( *(*i), *(*j), 0.0 );
+        }
+
+        for ( ModelList::iterator j = models.begin(); j != models.end(); j++ ) {
+            
+           // (*j)->model->position = (*j)->position;
+            collides ( *(*i), *(*j), 0.0 );
+//            std::cout << (*j)->position << std::endl;
+        }
+    }
+
+//    std::cout << planes.size() << std::endl;
+//    std::cout << spheres.size() << std::endl;
+    // std::cout << gravity << std::endl; gravity 0 by default?
+
     // TODO step the world forward by dt. Need to detect collisions, apply
     // forces, and integrate positions and orientations.
     //
@@ -24,6 +49,8 @@ void Physics::step( real_t dt )
     // Note, when you change the position/orientation of a physics object,
     // change the position/orientation of the graphical object that represents
     // it
+
+    // std::cout << scene.num_geometries() << std::endl;
 }
 
 void Physics::add_sphere( SphereBody* b )
