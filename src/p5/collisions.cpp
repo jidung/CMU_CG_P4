@@ -108,6 +108,8 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
     if ( fabs(d) < body1.radius )
     {
         std::cout << "Sphere-Triangle collision detected1" << std::endl;
+        new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+        body1.velocity = new_v;
         return true;
     }
 
@@ -232,6 +234,8 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         if ( fabs(d) < body1.radius )
         {
             std::cout << "Sphere-Model collision detected1" << std::endl;
+            new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+            body1.velocity = new_v;
             return true;
         }
     }

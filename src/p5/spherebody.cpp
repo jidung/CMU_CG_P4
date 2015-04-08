@@ -32,7 +32,7 @@ Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
 
     Vector3 deltaPos;
     deltaPos = position + velocity * dt;
-    velocity = velocity + (force / mass) * dt;
+    velocity = (velocity + (force / mass) * dt )* motion_damping;
     return deltaPos;
 }
 

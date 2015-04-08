@@ -16,7 +16,7 @@ void Physics::step( real_t dt )
 {
     for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
         (*i)->apply_force ( gravity, Vector3::Zero() );
-        (*i)->position = (*i)->step_position(dt, 0.0);
+        (*i)->position = (*i)->step_position(dt, 0.999);
 
     
         for ( PlaneList::iterator j = planes.begin(); j != planes.end(); j++ ) {
@@ -41,7 +41,6 @@ void Physics::step( real_t dt )
 
 //    std::cout << planes.size() << std::endl;
 //    std::cout << spheres.size() << std::endl;
-    // std::cout << gravity << std::endl; gravity 0 by default?
 
     // TODO step the world forward by dt. Need to detect collisions, apply
     // forces, and integrate positions and orientations.
