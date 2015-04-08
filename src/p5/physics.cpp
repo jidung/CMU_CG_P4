@@ -15,24 +15,28 @@ Physics::~Physics()
 void Physics::step( real_t dt )
 {
     for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
-        (*i)->apply_force ( Vector3 (0.001, 0.0, 0.0), Vector3 (0.1, 0.1, 0.1) );
-        (*i)->position += (*i)->step_position(dt, 0.0);
-        (*i)->sphere->position = (*i)->position;
+        (*i)->apply_force ( gravity, Vector3::Zero() );
+        (*i)->position = (*i)->step_position(dt, 0.0);
+
     
         for ( PlaneList::iterator j = planes.begin(); j != planes.end(); j++ ) {
             collides ( *(*i), *(*j), 0.0 );
         }
         
         for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) {
-            collides ( *(*i), *(*j), 0.0 );
+            if (collides ( *(*i), *(*j), 0.0 )) {}
+//                std::cout << "triangle" << std::endl;
         }
 
         for ( ModelList::iterator j = models.begin(); j != models.end(); j++ ) {
             
-           // (*j)->model->position = (*j)->position;
+           if ( (*j)->model->position != (*j)->position )
+               std::cout << "different" << std::endl;
             collides ( *(*i), *(*j), 0.0 );
 //            std::cout << (*j)->position << std::endl;
         }
+        
+        (*i)->sphere->position = (*i)->position;
     }
 
 //    std::cout << planes.size() << std::endl;

@@ -29,7 +29,11 @@ Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
     // TODO return the delta in position dt in the future
 
     //return Vector3::Zero();
-    return Vector3 (0.00, 0.01, 0.00);
+
+    Vector3 deltaPos;
+    deltaPos = position + velocity * dt;
+    velocity = velocity + (force / mass) * dt;
+    return deltaPos;
 }
 
 Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )

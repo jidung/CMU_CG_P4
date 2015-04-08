@@ -24,16 +24,11 @@ bool collides( SphereBody& body1, SphereBody& body2, real_t collision_damping )
 
         u1 = (body1.mass*body1.velocity + body2.mass*body2.velocity - body2.mass*u2) / body1.mass;
 
-        // if the relative velocity of one object to the other is positive
-        // can't it be just squared_length(u1-u2) != 0.0 ?
-        if ( squared_length(u1-u2) > 0.0 || squared_length(u2-u1) > 0.0 )
-        {
-            body1.velocity = u1;
-            body2.velocity = u2;
+        body1.velocity = u1;
+        body2.velocity = u2;
 
-            std::cout << "Sphere-Sphere collision detected" << std::endl;
-            return true; //collides
-        }
+        std::cout << "Sphere-Sphere collision detected" << std::endl;
+        return true; //collides
     }
 
     return false;
@@ -50,6 +45,7 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
 
     Vector3 p1 = body1.position;
     Vector3 p2 = body2.position;
+
     Vector3 a = p1 - p2;
     real_t  d = dot(a, n);   // distacne (projection)
     
@@ -62,50 +58,58 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
 
     real_t u, v, w;     // for barycentric coordinates
 
+    Vector3 new_v;
+
     Vector3 edge = v2 - v1;
     vToP = p - v1;
     w = dot (n, cross(edge, vToP));
     
-	if ( w < 0 ) {
-            p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
-            if ( distance(p1, p_) < body1.radius) {
-                //std::cout << "Sphere-Triangle collision detected2" << std::endl;
-                return true;
-            }
-	    return false;
-	}
-
-        edge = v3 - v2;
-        vToP = p - v2;
-        u = dot (n, cross(edge, vToP));
-
-	if ( u < 0 ) {
-            p_ = dot(p-v2, v3-v2) * (v3-v2) / squared_length(v3-v2) + v2;
-            if ( distance(p1, p_) < body1.radius ) {
-                //std::cout << "Sphere-Triangle collision detected3" << std::endl;
-                return true;
-            }
-	    return false;
-	}
-
-        edge = v1 - v3;
-        vToP = p - v3;
-        v = dot (n, cross(edge, vToP));
-
-	if ( v < 0 ) {
-            p_ = dot(p-v3, v1-v3) * (v1-v3) / squared_length(v1-v3) + v3;
-            if ( distance(p1, p_) < body1.radius) {
-                //std::cout << "Sphere-Triangle collision detected4" << std::endl;
-                return true;
-            }
-	    return false;
-	}
-
-        if ( fabs(d) < body1.radius )
-        {
-            //std::cout << "Sphere-Triangle collision detected1" << std::endl;
+    if ( w < 0 ) {
+        p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
+        if ( distance(p1, p_) < body1.radius) {
+            std::cout << "Sphere-Triangle collision detected2" << std::endl;
+            new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+            body1.velocity = new_v;
             return true;
         }
+        return false;
+    }
+
+    edge = v3 - v2;
+    vToP = p - v2;
+    u = dot (n, cross(edge, vToP));
+
+    if ( u < 0 ) {
+        p_ = dot(p-v2, v3-v2) * (v3-v2) / squared_length(v3-v2) + v2;
+        if ( distance(p1, p_) < body1.radius ) {
+            std::cout << "Sphere-Triangle collision detected3" << std::endl;
+            new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+            body1.velocity = new_v;
+            return true;
+        }
+        return false;
+    }
+
+    edge = v1 - v3;
+    vToP = p - v3;
+    v = dot (n, cross(edge, vToP));
+
+    if ( v < 0 ) {
+        p_ = dot(p-v3, v1-v3) * (v1-v3) / squared_length(v1-v3) + v3;
+        if ( distance(p1, p_) < body1.radius) {
+            std::cout << "Sphere-Triangle collision detected4" << std::endl;
+            new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+            body1.velocity = new_v;
+            return true;
+        }
+        return false;
+    }
+
+    if ( fabs(d) < body1.radius )
+    {
+        std::cout << "Sphere-Triangle collision detected1" << std::endl;
+        return true;
+    }
 
     // collides
     
@@ -148,23 +152,24 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
     bool hit = false;
     real_t u, v, w; // for barycentric coord calculation
         
-    Vector3 p1 = body1.position;
+    Vector3 p1 = body1.position - body2.model->position;   // test in model's local space
+
     //Vector3 p1 = Vector3::Zero();
 
     Vector3 p_;
 
     for (unsigned int i = 0; i < body2.model->mesh->num_triangles(); ++i) {
-        
+    
+        /*
         Vector3 v1 = vertices[triangles[i].vertices[0]].position + body2.position;
         Vector3 v2 = vertices[triangles[i].vertices[1]].position + body2.position;
         Vector3 v3 = vertices[triangles[i].vertices[2]].position + body2.position;
+        */
         
-        /*
         Vector3 v1 = vertices[triangles[i].vertices[0]].position;
         Vector3 v2 = vertices[triangles[i].vertices[1]].position;
         Vector3 v3 = vertices[triangles[i].vertices[2]].position;
-        */
-//        Vector3 n = normalize ( cross (v3 - v1, v2 - v1) );  // triangle normal
+        
         Vector3 n = normalize ( cross (v2 - v1, v3 - v1) );  // triangle normal
 
         //Vector3 p2 = (v1 + v2 + v3) / 3.0;    // any point on the trianlge. this time its centroid
@@ -177,44 +182,52 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
 
         Vector3 vToP;
 
+        Vector3 new_v;
+
         Vector3 edge = v2 - v1;
         vToP = p - v1;
         w = dot (n, cross(edge, vToP));
 
-	if ( w < 0 ) {
+        if ( w < 0 ) {
             p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
             if ( distance(p1, p_) < body1.radius) {
                 std::cout << "Sphere-Model collision detected2" << std::endl;
+                new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+                body1.velocity = new_v;
                 return true;
             }
-	    continue;
-	}
+            continue;
+        }
 
         edge = v3 - v2;
         vToP = p - v2;
         u = dot (n, cross(edge, vToP));
 
-	if ( u < 0 ) {
+        if ( u < 0 ) {
             p_ = dot(p-v2, v3-v2) * (v3-v2) / squared_length(v3-v2) + v2;
             if ( distance(p1, p_) < body1.radius ) {
                 std::cout << "Sphere-Model collision detected3" << std::endl;
+                new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+                body1.velocity = new_v;
                 return true;
             }
-	    continue;
-	}
+            continue;
+        }
 
         edge = v1 - v3;
         vToP = p - v3;
         v = dot (n, cross(edge, vToP));
 
-	if ( v < 0 ) {
+        if ( v < 0 ) {
             p_ = dot(p-v3, v1-v3) * (v1-v3) / squared_length(v1-v3) + v3;
             if ( distance(p1, p_) < body1.radius) {
                 std::cout << "Sphere-Model collision detected4" << std::endl;
+                new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
+                body1.velocity = new_v;
                 return true;
             }
-	    continue;
-	}
+            continue;
+        }
 
         if ( fabs(d) < body1.radius )
         {

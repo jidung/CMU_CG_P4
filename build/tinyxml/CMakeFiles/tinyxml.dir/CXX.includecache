@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxml.cpp
+/home/jd/Desktop/p4/src/tinyxml/tinyxml.cpp
 ctype.h
 -
 sstream
@@ -14,9 +14,9 @@ sstream
 iostream
 -
 tinyxml.h
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxml.h
+/home/jd/Desktop/p4/src/tinyxml/tinyxml.h
 
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxml.h
+/home/jd/Desktop/p4/src/tinyxml/tinyxml.h
 ctype.h
 -
 stdio.h
@@ -34,19 +34,19 @@ iostream
 sstream
 -
 tinystr.h
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinystr.h
+/home/jd/Desktop/p4/src/tinyxml/tinystr.h
 
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxmlerror.cpp
+/home/jd/Desktop/p4/src/tinyxml/tinyxmlerror.cpp
 tinyxml.h
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxml.h
+/home/jd/Desktop/p4/src/tinyxml/tinyxml.h
 
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxmlparser.cpp
+/home/jd/Desktop/p4/src/tinyxml/tinyxmlparser.cpp
 ctype.h
 -
 stddef.h
 -
 tinyxml.h
-/afs/andrew.cmu.edu/usr1/minwongj/CMU_CG_P4/src/tinyxml/tinyxml.h
+/home/jd/Desktop/p4/src/tinyxml/tinyxml.h
 windows.h
 -
 
