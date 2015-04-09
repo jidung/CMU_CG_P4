@@ -26,7 +26,7 @@ void Physics::step( real_t dt )
         }
         
         for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) {
-            if (collides ( *(*i), *(*j), 0.991 )) {}
+            if (collides ( *(*i), *(*j), 0.99 )) {}
 //                std::cout << "triangle" << std::endl;
         }
 
@@ -34,13 +34,17 @@ void Physics::step( real_t dt )
             
            if ( (*j)->model->position != (*j)->position )
                std::cout << "different" << std::endl;
-            collides ( *(*i), *(*j), 1.0 );
+            collides ( *(*i), *(*j), 0.99 );
 //            std::cout << (*j)->position << std::endl;
         }
         
         (*i)->apply_force ( gravity, Vector3::Zero() );
-        (*i)->position = (*i)->step_position(dt, 0.9998);
+        (*i)->position = (*i)->step_position(dt, 0.9997);
         (*i)->sphere->position = (*i)->position;
+       
+        (*i)->step_orientation(dt, 0.9997);
+        (*i)->sphere->orientation = (*i)->orientation;
+
     }
 
 //    std::cout << planes.size() << std::endl;

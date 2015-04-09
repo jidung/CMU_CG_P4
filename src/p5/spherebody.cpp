@@ -32,7 +32,8 @@ Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
 
     Vector3 deltaPos;
     deltaPos = position + velocity * dt;
-    velocity = (velocity + (force / mass) * dt )* motion_damping;
+    velocity = (velocity + (force / mass) * dt) * motion_damping;
+
     return deltaPos;
 }
 
@@ -45,6 +46,12 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
     // vec.x = rotation along x axis
     // vec.y = rotation along y axis
     // vec.z = rotation along z axis
+
+    Quaternion rotate_quaternion (0.0, angular_velocity.x, angular_velocity.y,
+            angular_velocity.z);
+
+    orientation = 0.5 * rotate_quaternion * orientation * dt * motion_damping; 
+    //orientation = rotate_quaternion * orientation * dt * motion_damping; 
 
     return Vector3::Zero();
 }

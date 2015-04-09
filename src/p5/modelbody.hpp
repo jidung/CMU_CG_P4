@@ -5,6 +5,8 @@
 #include "math/vector.hpp"
 #include "math/quaternion.hpp"
 
+#define EPS 1.0
+
 namespace _462 {
 
 class Model;

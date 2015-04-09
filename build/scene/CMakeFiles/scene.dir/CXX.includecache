@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/jd/Desktop/p4/src/application/imageio.hpp
-cstdlib
--
-
 /home/jd/Desktop/p4/src/application/opengl.hpp
 GL/glew.h
 -
@@ -146,10 +142,6 @@ p5/spherebody.hpp
 math/vector.hpp
 /home/jd/Desktop/p4/src/p5/math/vector.hpp
 
-/home/jd/Desktop/p4/src/scene/geometry.cpp
-scene/geometry.hpp
-/home/jd/Desktop/p4/src/scene/scene/geometry.hpp
-
 /home/jd/Desktop/p4/src/scene/geometry.hpp
 math/vector.hpp
 /home/jd/Desktop/p4/src/scene/math/vector.hpp
@@ -157,12 +149,6 @@ math/color.hpp
 /home/jd/Desktop/p4/src/scene/math/color.hpp
 math/quaternion.hpp
 /home/jd/Desktop/p4/src/scene/math/quaternion.hpp
-
-/home/jd/Desktop/p4/src/scene/material.cpp
-scene/material.hpp
-/home/jd/Desktop/p4/src/scene/scene/material.hpp
-application/imageio.hpp
-/home/jd/Desktop/p4/src/scene/application/imageio.hpp
 
 /home/jd/Desktop/p4/src/scene/material.hpp
 math/color.hpp
@@ -174,48 +160,12 @@ application/opengl.hpp
 string
 -
 
-/home/jd/Desktop/p4/src/scene/mesh.cpp
-scene/mesh.hpp
-/home/jd/Desktop/p4/src/scene/scene/mesh.hpp
-application/opengl.hpp
-/home/jd/Desktop/p4/src/scene/application/opengl.hpp
-iostream
--
-cstring
--
-string
--
-fstream
--
-sstream
--
-map
--
-
 /home/jd/Desktop/p4/src/scene/mesh.hpp
 math/vector.hpp
 /home/jd/Desktop/p4/src/scene/math/vector.hpp
 vector
 -
 cassert
--
-
-/home/jd/Desktop/p4/src/scene/model.cpp
-application/opengl.hpp
-/home/jd/Desktop/p4/src/scene/application/opengl.hpp
-scene/model.hpp
-/home/jd/Desktop/p4/src/scene/scene/model.hpp
-scene/material.hpp
-/home/jd/Desktop/p4/src/scene/scene/material.hpp
-iostream
--
-cstring
--
-string
--
-fstream
--
-sstream
 -
 
 /home/jd/Desktop/p4/src/scene/model.hpp
@@ -256,23 +206,11 @@ map
 cfloat
 -
 
-/home/jd/Desktop/p4/src/scene/sphere.cpp
-scene/sphere.hpp
-/home/jd/Desktop/p4/src/scene/scene/sphere.hpp
-application/opengl.hpp
-/home/jd/Desktop/p4/src/scene/application/opengl.hpp
-
 /home/jd/Desktop/p4/src/scene/sphere.hpp
 scene/material.hpp
 /home/jd/Desktop/p4/src/scene/scene/material.hpp
 scene/geometry.hpp
 /home/jd/Desktop/p4/src/scene/scene/geometry.hpp
-
-/home/jd/Desktop/p4/src/scene/triangle.cpp
-scene/triangle.hpp
-/home/jd/Desktop/p4/src/scene/scene/triangle.hpp
-application/opengl.hpp
-/home/jd/Desktop/p4/src/scene/application/opengl.hpp
 
 /home/jd/Desktop/p4/src/scene/triangle.hpp
 scene/material.hpp

@@ -4,5 +4,35 @@ if you have missing features, be sure to explain how much you accomplished.
 Describe any major design decisions and descriptions of your algorithms.
 You should detail anything you think we need to know to understand your code.
 
-Computer Graphics Project 4
+----------------------------------------------------------------------
+2015 Spring Computer Graphics Assignment 4 - Physics Simulation: 
+    Checkpoint Submission
 Minoong Ji (minwongj@andrew.cmu.edu)
+Professor Nancy Pollard
+Carnegie Mellon University
+----------------------------------------------------------------------
+
+
+----------------------------------------------------------------------
+Implemented Features
+----------------------------------------------------------------------
+
+All basic requirements are implemented.
+
+- Sphere to Sphere Collision detection
+- Sphere to Plane Collision detection
+- Sphere to Trianlge Collision detection
+- Sphere to Model Collision detection
+- An integrator with simple Euler method
+- Acceleration due to gravity ( collision.scene, cube_collision.scene,
+  collision_stress.scene modified to add gravity to the scenes )
+
+Things To do Next
+
+- Applying torque
+- Runge-Kutta 4 integrator
+- Add springs
+- Ensure the scene to have constant energy
+- Add bounding volumes and bounding volume hierachy
+- Additional functionality
+
