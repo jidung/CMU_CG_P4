@@ -42,7 +42,7 @@ void Physics::step( real_t dt )
         (*i)->position = (*i)->step_position(dt, 0.9997);
         (*i)->sphere->position = (*i)->position;
        
-        (*i)->step_orientation(dt, 0.9997);
+        (*i)->step_orientation(dt, 0.9);
         (*i)->sphere->orientation = (*i)->orientation;
 
     }

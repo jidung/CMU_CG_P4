@@ -49,9 +49,13 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
 
     Quaternion rotate_quaternion (0.0, angular_velocity.x, angular_velocity.y,
             angular_velocity.z);
+    Quaternion spin;
 
-    orientation = 0.5 * rotate_quaternion * orientation * dt * motion_damping; 
-    //orientation = rotate_quaternion * orientation * dt * motion_damping; 
+    spin = 0.5 * rotate_quaternion * orientation * dt; 
+    //orientation = normalize(spin);
+    orientation = normalize ( Quaternion ( Vector3::UnitX(), 0.1 ) * orientation ) * dt;
+
+    angular_velocity = (angular_velocity + (torque / mass) * dt) * motion_damping;
 
     return Vector3::Zero();
 }
@@ -60,6 +64,7 @@ void SphereBody::apply_force( const Vector3& f, const Vector3& offset )
 {
     // TODO apply force/torque to sphere
     force = f;
+    torque = angular_velocity * 0.9;
 }
 
 }
