@@ -70,7 +70,7 @@ void SphereBody::apply_force( const Vector3& f, const Vector3& offset )
 {
     // TODO apply force/torque to sphere
     force = f;
-    torque = angular_velocity * 0.7;
+    //torque = angular_velocity * 0.7;
 }
 
 }
