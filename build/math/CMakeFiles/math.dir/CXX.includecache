@@ -16,22 +16,6 @@ math/vector.hpp
 math/quaternion.hpp
 /home/jd/Desktop/p4/src/math/math/quaternion.hpp
 
-/home/jd/Desktop/p4/src/math/color.cpp
-math/color.hpp
-/home/jd/Desktop/p4/src/math/math/color.hpp
-
-/home/jd/Desktop/p4/src/math/color.hpp
-math/math.hpp
-/home/jd/Desktop/p4/src/math/math/math.hpp
-iostream
--
-cassert
--
-
-/home/jd/Desktop/p4/src/math/math.cpp
-math/math.hpp
-/home/jd/Desktop/p4/src/math/math/math.hpp
-
 /home/jd/Desktop/p4/src/math/math.hpp
 algorithm
 -
@@ -63,10 +47,6 @@ math/matrix.hpp
 /home/jd/Desktop/p4/src/math/quaternion.hpp
 math/math.hpp
 /home/jd/Desktop/p4/src/math/math/math.hpp
-math/vector.hpp
-/home/jd/Desktop/p4/src/math/math/vector.hpp
-
-/home/jd/Desktop/p4/src/math/vector.cpp
 math/vector.hpp
 /home/jd/Desktop/p4/src/math/math/vector.hpp
 

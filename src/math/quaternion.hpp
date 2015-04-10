@@ -98,6 +98,15 @@ public:
         return *this;
     }
 
+    Quaternion& operator+=(const Quaternion &b)
+    {
+        w += b.w;
+        x += b.x;
+        y += b.y;
+        z += b.z;
+        return *this;
+    }
+    
     bool operator==( const Quaternion& rhs ) const {
         return rhs.x == x && rhs.y == y &&
                rhs.z == z && rhs.w == w;
