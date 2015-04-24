@@ -21,6 +21,7 @@ SphereBody::SphereBody( Sphere* geom )
     torque = Vector3::Zero();
 }
 
+// euler step - not used
 Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
 {
     // Note: This function is here as a hint for an approach to take towards
@@ -32,9 +33,21 @@ Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
 
     Vector3 deltaPos;
     deltaPos = position + velocity * dt;
-    velocity = (velocity + (force / mass) * dt) * motion_damping;
+    velocity = (velocity + (force / mass) * dt) * (1 - motion_damping);
 
     return deltaPos;
+}
+
+Vector3 SphereBody::acceleration( real_t dt, Vector3 velocity, real_t motion_damping )
+{
+//    return velocity * motion_damping * dt;
+    //return (velocity + (force/mass) ) * motion_damping;
+    return (velocity * dt + (force/mass) ) * (1 - motion_damping);
+}
+
+Vector3 SphereBody::angular_acceleration( real_t dt, Vector3 angular_velocity, real_t motion_damping )
+{
+    return (angular_velocity * dt + (torque/mass) ) * (1 - motion_damping);
 }
 
 Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
@@ -60,8 +73,7 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
 
     orientation = normalize(spin);
     //orientation = normalize ( Quaternion ( Vector3::UnitX(), 0.1 ) * orientation );
-
-    angular_velocity = (angular_velocity + (torque / mass) * dt) * motion_damping;
+    //angular_velocity = (angular_velocity + (torque / mass) * dt) * (1 - motion_damping);
 
     return Vector3::Zero();
 }
@@ -69,7 +81,23 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
 void SphereBody::apply_force( const Vector3& f, const Vector3& offset )
 {
     // TODO apply force/torque to sphere
-    force = f;
+ 
+    // When the offset from the center is not zero or parallel to the force direction
+    if (offset != Vector3::Zero() || dot (offset, f) != 0 ) {
+        //split the force into two components, linear and angular
+        
+        //linear force is force parallel to the offset from the center
+        force = dot (f, normalize(position - offset)) * (position - offset);
+        
+        //torque is perpendicular component
+        Vector3 torque = cross (offset, f);
+        real_t i = 0.4 * mass * radius * radius;
+        Vector3 angular_acceleration = torque / i;
+    } else {
+        force = f;
+    }
+
+    //force=f;
     //torque = angular_velocity * 0.7;
 }
 

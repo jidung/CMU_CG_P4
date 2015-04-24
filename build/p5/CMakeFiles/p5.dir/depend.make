@@ -4,6 +4,7 @@
 p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/application/opengl.hpp
 p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/math/color.hpp
 p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/math/math.hpp
+p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/math/matrix.hpp
 p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/math/quaternion.hpp
 p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/math/vector.hpp
 p5/CMakeFiles/p5.dir/collisions.cpp.o: /home/jd/Desktop/p4/src/p5/body.hpp
@@ -88,6 +89,7 @@ p5/CMakeFiles/p5.dir/modelbody.cpp.o: /home/jd/Desktop/p4/src/p5/modelbody.hpp
 p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/application/opengl.hpp
 p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/math/color.hpp
 p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/math/math.hpp
+p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/math/matrix.hpp
 p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/math/quaternion.hpp
 p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/math/vector.hpp
 p5/CMakeFiles/p5.dir/physics.cpp.o: /home/jd/Desktop/p4/src/p5/body.hpp

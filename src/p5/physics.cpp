@@ -17,38 +17,61 @@ void Physics::step( real_t dt )
     for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
 
         for ( SphereList::iterator j = spheres.begin(); j != spheres.end(); j++ ) {
-            if ( *i != *j )
-                collides ( *(*i), *(*j), 0.993 );
+            if ( *i != *j ) // don't check collision with itself
+                collides ( *(*i), *(*j), 0.01 );
         }
     
         for ( PlaneList::iterator j = planes.begin(); j != planes.end(); j++ ) {
-            collides ( *(*i), *(*j), 0.99 );
+            collides ( *(*i), *(*j), 0.01 );
         }
         
-        for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) {
-            if (collides ( *(*i), *(*j), 0.99 )) {}
-//                std::cout << "triangle" << std::endl;
+        for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) 
+        {
+            collides ( *(*i), *(*j), 0.01 );
         }
 
         for ( ModelList::iterator j = models.begin(); j != models.end(); j++ ) {
-            
-           if ( (*j)->model->position != (*j)->position )
-               std::cout << "different" << std::endl;
-            collides ( *(*i), *(*j), 0.99 );
-//            std::cout << (*j)->position << std::endl;
+            collides ( *(*i), *(*j), 0.01 );
         }
         
         (*i)->apply_force ( gravity, Vector3::Zero() );
-        (*i)->position = (*i)->step_position(dt, 0.9997);
-        (*i)->sphere->position = (*i)->position;
+
+        Vector3 initial_vel = (*i)->velocity;
+        if (squared_length(initial_vel) != 0) {
+
+            Vector3 initial_pos = (*i)->position;
+            Vector3 k1, k2, k3, k4;
+            Vector3 k1_p, k2_p, k3_p, k4_p; // for position
+
+            k1   = (*i)->acceleration (dt, initial_vel, 0.01);
+            k1_p = (initial_vel);
+            k2   = (*i)->acceleration (dt*0.5, initial_vel + k1*dt*0.5, 0.01);
+            k2_p = (initial_vel + k1*dt*0.5); 
+            k3   = (*i)->acceleration (dt*0.5, initial_vel + k2*dt*0.5, 0.01);
+            k3_p = (initial_vel + k2*dt*0.5); 
+            k4   = (*i)->acceleration (dt, initial_vel + k3*dt, 0.01);
+            k4_p = (initial_vel + k3*dt); 
+
+            (*i)->velocity = initial_vel + (k1*(1.0/6.0) + k2*(1.0/3.0) + k3*(1.0/3.0) + k4*(1.0/6.0)) * dt;
+            (*i)->position = initial_pos + (k1_p*(1.0/6.0) + k2_p*(1.0/3.0) + k3_p*(1.0/3.0) + k4_p*(1.0/6.0)) * dt;
+        }
+
+        Vector3 k1_a, k2_a, k3_a, k4_a; // for angular velocity
+        Vector3 initial_avel = (*i)->angular_velocity;
+        k1_a = (*i)->angular_acceleration (dt, initial_avel, 0.5);
+        k2_a = (*i)->angular_acceleration (dt*0.5, initial_avel + k1_a*dt*0.5, 0.5);
+        k3_a = (*i)->angular_acceleration (dt*0.5, initial_avel + k2_a*dt*0.5, 0.5);
+        k4_a = (*i)->angular_acceleration (dt, initial_avel + k3_a*dt, 0.5);
+        
+        (*i)->angular_velocity = initial_avel + (k1_a*(1.0/6.0) + k2_a*(1.0/3.0) + k3_a*(1.0/3.0) + k4_a*(1.0/6.0)) * dt;
+
+        //(*i)->position = (*i)->step_position(dt, 0.001);
+        //(*i)->sphere->position = (*i)->position;
        
-        (*i)->step_orientation(dt, 0.999);
+        (*i)->step_orientation(dt, 0.01);
         (*i)->sphere->orientation = (*i)->orientation;
 
     }
-
-//    std::cout << planes.size() << std::endl;
-//    std::cout << spheres.size() << std::endl;
 
     // TODO step the world forward by dt. Need to detect collisions, apply
     // forces, and integrate positions and orientations.

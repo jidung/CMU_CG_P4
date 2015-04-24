@@ -21,6 +21,7 @@ scene/CMakeFiles/scene.dir/material.cpp.o: /usr/include/SDL/SDL_platform.h
 
 scene/CMakeFiles/scene.dir/mesh.cpp.o: /home/jd/Desktop/p4/src/application/opengl.hpp
 scene/CMakeFiles/scene.dir/mesh.cpp.o: /home/jd/Desktop/p4/src/math/math.hpp
+scene/CMakeFiles/scene.dir/mesh.cpp.o: /home/jd/Desktop/p4/src/math/matrix.hpp
 scene/CMakeFiles/scene.dir/mesh.cpp.o: /home/jd/Desktop/p4/src/math/vector.hpp
 scene/CMakeFiles/scene.dir/mesh.cpp.o: /home/jd/Desktop/p4/src/scene/mesh.cpp
 scene/CMakeFiles/scene.dir/mesh.cpp.o: /home/jd/Desktop/p4/src/scene/mesh.hpp
@@ -31,6 +32,7 @@ scene/CMakeFiles/scene.dir/mesh.cpp.o: /usr/include/SDL/SDL_platform.h
 scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/application/opengl.hpp
 scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/math/color.hpp
 scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/math/math.hpp
+scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/math/matrix.hpp
 scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/math/quaternion.hpp
 scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/math/vector.hpp
 scene/CMakeFiles/scene.dir/model.cpp.o: /home/jd/Desktop/p4/src/scene/geometry.hpp

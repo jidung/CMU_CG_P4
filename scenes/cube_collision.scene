@@ -14,7 +14,7 @@
 
     <ambient_light r="0.2" g="0.2" b="0.2"/>
     
-    <gravity x="0.0" y="-9.8" z="0"/> 
+    <gravity x="0" y="9.8" z="0"/> 
 
     <point_light>
         <position x="1.0" y="3.0" z="12.0"/>

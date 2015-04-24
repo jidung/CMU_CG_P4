@@ -10,6 +10,7 @@
 #define _462_SCENE_MESH_HPP_
 
 #include "math/vector.hpp"
+#include "math/matrix.hpp"  // m.ji
 
 #include <vector>
 #include <cassert>
@@ -94,7 +95,6 @@ private:
     Mesh& operator=( const Mesh& );
 
 };
-
 
 } /* _462 */
 

@@ -57,6 +57,7 @@ Mesh::Mesh()
 
 Mesh::~Mesh() { }
 
+
 bool Mesh::load()
 {
     std::cout << "Loading mesh from '" << filename << "'..." << std::endl;
@@ -87,6 +88,7 @@ bool Mesh::load()
 
     triangles.clear();
 
+    // is it handling only vertex only? m.ji
     ObjFormat format = VERTEX_ONLY;
 
     typedef std::map< TriIndex, unsigned int > VertexMap;
@@ -112,7 +114,6 @@ bool Mesh::load()
                 std::cerr << "position syntax error on line " << line_num << std::endl;
                 return false;
             }
-
             position_list.push_back( position );
 
         } else if ( token == "vn" ) {

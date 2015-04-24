@@ -579,6 +579,10 @@ bool load_scene( Scene* scene, const char* filename )
             check_mem( geom );
             scene->add_geometry( geom );
             parse_geom_model( materials, meshes, bodies, scene->get_physics(), elem, geom );
+
+            /* added by m.ji */
+            make_transformation_matrix (&(geom->mat), geom->position, geom->orientation, geom->scale); 
+            make_inverse_transformation_matrix (&(geom->invMat), geom->position, geom->orientation, geom->scale);
             elem = elem->NextSiblingElement( STR_MODEL );
         }
 
