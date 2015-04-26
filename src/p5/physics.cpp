@@ -14,8 +14,14 @@ Physics::~Physics()
 
 void Physics::step( real_t dt )
 {
-    for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
+    for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ )
+        (*i)->force = Vector3::Zero();
 
+    for ( SpringList::iterator j = springs.begin(); j != springs.end(); j++)
+        (*j)->step(dt);
+
+    for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
+        
         for ( SphereList::iterator j = spheres.begin(); j != spheres.end(); j++ ) {
             if ( *i != *j ) // don't check collision with itself
                 collides ( *(*i), *(*j), 0.01 );
@@ -34,10 +40,13 @@ void Physics::step( real_t dt )
             collides ( *(*i), *(*j), 0.01 );
         }
         
-        (*i)->apply_force ( gravity, Vector3::Zero() );
+        (*i)->apply_force ( gravity*(*i)->mass, Vector3::Zero() );
+
+        //(*i)->apply_gravity ( gravity );
 
         Vector3 initial_vel = (*i)->velocity;
-        if (squared_length(initial_vel) != 0) {
+        //if (squared_length(initial_vel) != 0) {
+        if (true) {
 
             Vector3 initial_pos = (*i)->position;
             Vector3 k1, k2, k3, k4;
@@ -66,12 +75,13 @@ void Physics::step( real_t dt )
         (*i)->angular_velocity = initial_avel + (k1_a*(1.0/6.0) + k2_a*(1.0/3.0) + k3_a*(1.0/3.0) + k4_a*(1.0/6.0)) * dt;
 
         //(*i)->position = (*i)->step_position(dt, 0.001);
-        //(*i)->sphere->position = (*i)->position;
+        (*i)->sphere->position = (*i)->position;
        
         (*i)->step_orientation(dt, 0.01);
         (*i)->sphere->orientation = (*i)->orientation;
-
     }
+    
+
 
     // TODO step the world forward by dt. Need to detect collisions, apply
     // forces, and integrate positions and orientations.
@@ -83,8 +93,6 @@ void Physics::step( real_t dt )
     // Note, when you change the position/orientation of a physics object,
     // change the position/orientation of the graphical object that represents
     // it
-
-    // std::cout << scene.num_geometries() << std::endl;
 }
 
 void Physics::add_sphere( SphereBody* b )

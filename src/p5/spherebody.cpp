@@ -19,6 +19,8 @@ SphereBody::SphereBody( Sphere* geom )
     angular_velocity = Vector3::Zero();
     force = Vector3::Zero();
     torque = Vector3::Zero();
+
+    gravity = Vector3::Zero(); // jd
 }
 
 // euler step - not used
@@ -78,23 +80,33 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
     return Vector3::Zero();
 }
 
+void SphereBody::apply_gravity( const Vector3& gravity ) 
+{
+    this->gravity = gravity;
+    force = gravity * mass; 
+}
+
 void SphereBody::apply_force( const Vector3& f, const Vector3& offset )
 {
     // TODO apply force/torque to sphere
- 
+   
     // When the offset from the center is not zero or parallel to the force direction
     if (offset != Vector3::Zero() || dot (offset, f) != 0 ) {
         //split the force into two components, linear and angular
         
         //linear force is force parallel to the offset from the center
-        force = dot (f, normalize(position - offset)) * (position - offset);
+        //force = gravity*mass + dot (f, normalize(position - offset)) * (position - offset);
+        force += dot (f, normalize(position - offset)) * (position - offset);
         
         //torque is perpendicular component
         Vector3 torque = cross (offset, f);
         real_t i = 0.4 * mass * radius * radius;
-        Vector3 angular_acceleration = torque / i;
+        angular_velocity = torque / i;
+        //this->torque = torque / i;
+
+        std::cout << " do you ever come here? " << std::endl;
     } else {
-        force = f;
+        force += f;
     }
 
     //force=f;

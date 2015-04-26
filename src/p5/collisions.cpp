@@ -18,8 +18,6 @@ bool collides( SphereBody& body1, SphereBody& body2, real_t collision_damping )
     if ( squared_length (p2minusp1) 
             < (body1.radius + body2.radius)*(body1.radius + body2.radius) )
     {
-
-        
         //d = p2minusp1 / distance (p2minusp1);
         d = normalize (p2minusp1);  // should be the same thing
 
@@ -288,6 +286,7 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
             new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
             //return true;
             hit = true;
+            break;
         }
     }
 
