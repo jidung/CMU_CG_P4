@@ -34,7 +34,7 @@ bool collides( SphereBody& body1, SphereBody& body2, real_t collision_damping )
         if ( squared_length (body2.velocity) < EPS )
             body2.velocity = Vector3::Zero();
 
-        std::cout << "Sphere-Sphere collision detected" << std::endl;
+        //std::cout << "Sphere-Sphere collision detected" << std::endl;
         return true; //collides
     }
 
@@ -60,9 +60,8 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
     // projected point on the plane defined by the triangle
     Vector3 p = p1 - d * n;
 
-    if ( (d < 0 && dot(body1.velocity, n) >= 0) || (d > 0 && dot(body1.velocity, n) >= 0) ) // leaving the surface
+    if ( (d < 0 && dot(body1.velocity, n) < 0) || (d > 0 && dot(body1.velocity, n) > 0) ) // leaving the surface
     {
-        //std::cout << "leaving surface" << std::endl;
         return false;
     }
 
@@ -77,7 +76,8 @@ bool collides( SphereBody& body1, TriangleBody& body2, real_t collision_damping 
     Vector3 edge = v2 - v1;
     vToP = p - v1;
     w = dot (n, cross(edge, vToP));
-    
+        
+
     if ( w < 0 ) {
         p_ = dot(p-v1, v2-v1) * (v2-v1) / squared_length(v2-v1) + v1;
         if ( distance(p1, p_) < body1.radius) {

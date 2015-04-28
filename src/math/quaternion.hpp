@@ -146,6 +146,17 @@ inline Quaternion operator*( real_t s, const Quaternion& rhs ) {
     return rhs * s;
 }
 
+// added by m.ji
+inline Quaternion operator+( const Quaternion& lhs, const Quaternion& rhs ) {
+    Quaternion out;
+    out.w = lhs.w + rhs.w;
+    out.x = lhs.x + rhs.x;
+    out.y = lhs.y + rhs.y;
+    out.z = lhs.z + rhs.z;
+    return out;
+
+}
+
 Quaternion normalize( const Quaternion& q );
 
 Quaternion conjugate( const Quaternion& q );

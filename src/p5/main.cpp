@@ -118,12 +118,16 @@ bool PhysicsApplication::initialize()
         Geometry* const* geometries = scene.get_geometries();
 
         for ( size_t i = 0; i < scene.num_geometries(); ++i ) {
+           
+            geometries[i]->make_AABB();
+            /*
+               Legacy code
             Model * model;
             if ( model = dynamic_cast<Model *> (geometries[i]) )
             {
                 model->make_AABB();
-                //std::cout << model->aabb.max << std::endl;
             }
+            */
         }
 
     } catch ( std::bad_alloc const& ) {

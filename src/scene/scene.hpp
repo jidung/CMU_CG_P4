@@ -110,6 +110,55 @@ private:
     // the physics engine
     Physics phys;
 
+    struct octree_node {
+        Vector3 max;
+        Vector3 min;
+        Geometry* geometry;
+        int child_idx;
+
+        octree_node () {
+            min = Vector3 (99999, 99999, 99999);
+            max = -min;
+            geometry = NULL;
+            child_idx = -1;
+        }
+    };
+
+    class Octree 
+    {
+    private:
+        std::vector< octree_node > octree_array;
+    public:
+        void construct_octree (size_t num_geometries, Geometry* geometries) {
+
+            size_t idx = 0;
+            octree_node node;
+            
+            for (size_t i = 0; i < num_geometries; ++i) {
+
+                if (node.min.x > geometries[i].aabb.min.x)
+                    node.min.x = geometries[i].aabb.min.x;
+                else if (octree_array[idx].max.x < geometries[i].aabb.max.x)
+                    node.max.x = geometries[i].aabb.max.x;
+
+                if (node.min.y > geometries[i].aabb.min.y)
+                    node.min.y = geometries[i].aabb.min.y;
+                else if (node.max.y < geometries[i].aabb.max.y)
+                    node.max.y = geometries[i].aabb.max.y;
+                
+                if (node.min.z > geometries[i].aabb.min.z)
+                    node.min.z = geometries[i].aabb.min.z;
+                else if (node.max.z < geometries[i].aabb.max.z)
+                    node.max.z = geometries[i].aabb.max.z;
+            }
+            
+            for (size_t i = 0; i < num_geometries; ++i) {
+                 
+            }    
+        }
+    };
+
+
 private:
 
     // no meaningful assignment or copy

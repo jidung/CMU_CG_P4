@@ -33,6 +33,20 @@ public:
      * Renders this geometry using OpenGL in the local coordinate space.
      */
     virtual void render() const = 0;
+    
+    // Axis-Aligned Bounding Box. m.ji
+    struct AABB 
+    {
+        Vector3 min, max;
+        AABB () {
+            min = Vector3(99999, 99999, 99999);
+            max = -min;
+        }
+    };
+    AABB aabb;  // m.ji
+    
+    // added by m.ji
+    virtual void make_AABB() = 0;
 };
 
 }

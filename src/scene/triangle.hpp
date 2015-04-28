@@ -41,6 +41,29 @@ public:
     virtual ~Triangle();
     virtual void render() const;
 
+    // m.ji
+    void make_AABB()
+    {
+        for (unsigned int i = 0; i < 3; ++i) {
+            //std::cout << mat.transform_point(vertices[i].position) << std::endl;
+            Vector3 pos = vertices[i].position;
+
+            if (pos.x < aabb.min.x)
+                aabb.min.x = pos.x;
+            else if (pos.x > aabb.max.x)
+                aabb.max.x = pos.x;
+
+            if (pos.y < aabb.min.y) 
+                aabb.min.y = pos.y;
+            else if (pos.y > aabb.max.y)
+                aabb.max.y = pos.y;
+
+            if (pos.z < aabb.min.z)
+                aabb.min.z = pos.z;
+            else if (pos.z > aabb.max.z)
+                aabb.max.z = pos.z;
+        }
+    }
 };
 
 

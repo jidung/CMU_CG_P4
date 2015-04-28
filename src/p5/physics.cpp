@@ -14,8 +14,12 @@ Physics::~Physics()
 
 void Physics::step( real_t dt )
 {
-    for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ )
+    bool didCollide = false;
+
+    for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
         (*i)->force = Vector3::Zero();
+        (*i)->torque = Vector3::Zero();
+    }
 
     for ( SpringList::iterator j = springs.begin(); j != springs.end(); j++)
         (*j)->step(dt);
@@ -24,64 +28,85 @@ void Physics::step( real_t dt )
         
         for ( SphereList::iterator j = spheres.begin(); j != spheres.end(); j++ ) {
             if ( *i != *j ) // don't check collision with itself
-                collides ( *(*i), *(*j), 0.01 );
+                didCollide |= collides ( *(*i), *(*j), collision_damping );
         }
     
         for ( PlaneList::iterator j = planes.begin(); j != planes.end(); j++ ) {
-            collides ( *(*i), *(*j), 0.01 );
+            didCollide |= collides ( *(*i), *(*j), collision_damping );
         }
         
         for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) 
         {
-            collides ( *(*i), *(*j), 0.01 );
+            didCollide |= collides ( *(*i), *(*j), collision_damping );
         }
 
         for ( ModelList::iterator j = models.begin(); j != models.end(); j++ ) {
-            collides ( *(*i), *(*j), 0.01 );
+            didCollide |= collides ( *(*i), *(*j), collision_damping );
         }
-        
-        (*i)->apply_force ( gravity*(*i)->mass, Vector3::Zero() );
+       
+        //if (didCollide) 
+        //    std::cout << "collision detected" << std::endl;
 
-        //(*i)->apply_gravity ( gravity );
+        // RK4 integration of velocity, position, angular velocity, orientation
 
         Vector3 initial_vel = (*i)->velocity;
-        //if (squared_length(initial_vel) != 0) {
-        if (true) {
+       
+        // dont' apply force only when it's colliding with something 
+        // and velocity is zero
+        if (!didCollide || initial_vel != Vector3::Zero())
+            (*i)->apply_force ( gravity*(*i)->mass, Vector3::Zero() );
+        
+        Vector3 initial_pos = (*i)->position;
+        Vector3 k1, k2, k3, k4;
+        Vector3 k1_p, k2_p, k3_p, k4_p; // for position
 
-            Vector3 initial_pos = (*i)->position;
-            Vector3 k1, k2, k3, k4;
-            Vector3 k1_p, k2_p, k3_p, k4_p; // for position
+        k1   = (*i)->acceleration (dt, initial_vel, 0.01);
+        k1_p = (initial_vel);
+        k2   = (*i)->acceleration (dt*0.5, initial_vel + k1*dt*0.5, 0.01);
+        k2_p = (initial_vel + k1*dt*0.5); 
+        k3   = (*i)->acceleration (dt*0.5, initial_vel + k2*dt*0.5, 0.01);
+        k3_p = (initial_vel + k2*dt*0.5); 
+        k4   = (*i)->acceleration (dt, initial_vel + k3*dt, 0.01);
+        k4_p = (initial_vel + k3*dt); 
 
-            k1   = (*i)->acceleration (dt, initial_vel, 0.01);
-            k1_p = (initial_vel);
-            k2   = (*i)->acceleration (dt*0.5, initial_vel + k1*dt*0.5, 0.01);
-            k2_p = (initial_vel + k1*dt*0.5); 
-            k3   = (*i)->acceleration (dt*0.5, initial_vel + k2*dt*0.5, 0.01);
-            k3_p = (initial_vel + k2*dt*0.5); 
-            k4   = (*i)->acceleration (dt, initial_vel + k3*dt, 0.01);
-            k4_p = (initial_vel + k3*dt); 
-
-            (*i)->velocity = initial_vel + (k1*(1.0/6.0) + k2*(1.0/3.0) + k3*(1.0/3.0) + k4*(1.0/6.0)) * dt;
-            (*i)->position = initial_pos + (k1_p*(1.0/6.0) + k2_p*(1.0/3.0) + k3_p*(1.0/3.0) + k4_p*(1.0/6.0)) * dt;
-        }
+        (*i)->velocity = initial_vel + (k1*(1.0/6.0) + k2*(1.0/3.0) + k3*(1.0/3.0) + k4*(1.0/6.0)) * dt;
+        (*i)->position = initial_pos + (k1_p*(1.0/6.0) + k2_p*(1.0/3.0) + k3_p*(1.0/3.0) + k4_p*(1.0/6.0)) * dt;
 
         Vector3 k1_a, k2_a, k3_a, k4_a; // for angular velocity
+        Vector3 k1_s, k2_s, k3_s, k4_s; // for orientation
         Vector3 initial_avel = (*i)->angular_velocity;
-        k1_a = (*i)->angular_acceleration (dt, initial_avel, 0.5);
-        k2_a = (*i)->angular_acceleration (dt*0.5, initial_avel + k1_a*dt*0.5, 0.5);
-        k3_a = (*i)->angular_acceleration (dt*0.5, initial_avel + k2_a*dt*0.5, 0.5);
-        k4_a = (*i)->angular_acceleration (dt, initial_avel + k3_a*dt, 0.5);
+        k1_a = (*i)->angular_acceleration (dt, initial_avel, 0);
+        k1_s = (initial_avel);
+        k2_a = (*i)->angular_acceleration (dt*0.5, initial_avel + k1_a*dt*0.5, 0);
+        k2_s = (initial_avel + k1_a*dt*0.5);
+        k3_a = (*i)->angular_acceleration (dt*0.5, initial_avel + k2_a*dt*0.5, 0);
+        k3_s = (initial_avel + k2_a*dt*0.5);
+        k4_a = (*i)->angular_acceleration (dt, initial_avel + k3_a*dt, 0);
+        k4_s = (initial_avel + k3_a*dt);
         
-        (*i)->angular_velocity = initial_avel + (k1_a*(1.0/6.0) + k2_a*(1.0/3.0) + k3_a*(1.0/3.0) + k4_a*(1.0/6.0)) * dt;
+        (*i)->angular_velocity = 
+         initial_avel + (k1_a*(1.0/6.0) + k2_a*(1.0/3.0) + k3_a*(1.0/3.0) + k4_a*(1.0/6.0)) * dt;
+        Vector3 spin = 
+         (k1_s*(1.0/6.0) + k2_s*(1.0/3.0) + k3_s*(1.0/3.0) + k4_s*(1.0/6.0)) * dt;
+        
+        Vector3 axis = normalize( spin ); 
+        real_t magnitude = length( spin );
 
-        //(*i)->position = (*i)->step_position(dt, 0.001);
-        (*i)->sphere->position = (*i)->position;
+        // don't do this when rotation magnitude is zero
+        if (magnitude != 0) { 
+            Quaternion delta_orientation( axis, magnitude );
+            (*i)->orientation = normalize( (*i)->orientation * delta_orientation );
+        }
+        
+        /* Euler method
+        (*i)->position = (*i)->step_position(dt, 0.001);
+        (*i)->step_orientation(dt, 0);
+        */
        
-        (*i)->step_orientation(dt, 0.01);
+        // update graphical representation
+        (*i)->sphere->position = (*i)->position;
         (*i)->sphere->orientation = (*i)->orientation;
     }
-    
-
 
     // TODO step the world forward by dt. Need to detect collisions, apply
     // forces, and integrate positions and orientations.

@@ -17,6 +17,8 @@ public:
     Vector3 force;
     Vector3 torque;
 
+    Vector3 angular_accel; //jd
+
     SphereBody( Sphere* geom );
     virtual ~SphereBody() { }
     Vector3 acceleration( real_t dt, Vector3 velocity, real_t motion_damping );

@@ -36,3 +36,14 @@ Things To do Next
 - Add bounding volumes and bounding volume hierachy
 - Additional functionality
 
+
+
+----------------------------------------------------------------------
+Implemented Features - After Checkpoint
+----------------------------------------------------------------------
+
+- Axis-Aligned Bounding Boxes
+Models have AABB.
+they are constructed by make->AABB() function after all the meshes are loaded in PhysicsApplication::initialize() in main.cpp
+
+

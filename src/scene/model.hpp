@@ -30,17 +30,6 @@ public:
     virtual void render() const;
 
     Matrix4 mat, invMat; //m.ji
-
-    // Axis-Aligned Bounding Box. m.ji
-    struct AABB 
-    {
-        Vector3 min, max;
-        AABB () {
-            min = Vector3(9999, 9999, 9999);
-            max = -min;
-        }
-    };
-    AABB aabb;  // m.ji
     
     // m.ji
     void make_AABB()
