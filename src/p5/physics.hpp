@@ -21,6 +21,8 @@ class Physics
 public:
     Vector3 gravity;
 	real_t collision_damping;
+	real_t motion_damping;  // m.ji
+    real_t rotation_damping; // m.ji
 
     Physics();
     ~Physics();
@@ -51,6 +53,22 @@ private:
     PlaneList planes;
     TriangleList triangles;
     ModelList models;
+    
+    Vector3 rk4( Vector3(Physics::*f)(Vector3, Vector3, real_t), Vector3 x, Vector3 current_x, real_t dt )   //m.ji
+    {
+        Vector3 k1 = dt * (*this.*f)(x, current_x, dt),
+                k2 = dt * (*this.*f)(x + k1 * 0.5, current_x, dt * 0.5),
+                k3 = dt * (*this.*f)(x + k2 * 0.5, current_x, dt * 0.5),
+                k4 = dt * (*this.*f)(x + k3, current_x, dt);
+
+        return x + (k1 + 2.0 * k2 + 2.0 * k3 + k4) / 6.0;
+    }
+    
+    Vector3 evaluate(Vector3 x, Vector3 current_x, real_t dt)
+    {
+        return x * dt + current_x; 
+    }
+
 };
 
 }

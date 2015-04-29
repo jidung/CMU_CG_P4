@@ -126,24 +126,6 @@ scene/sphere.hpp
 p5/body.hpp
 /home/jd/Desktop/p4/src/p5/p5/body.hpp
 
-/home/jd/Desktop/p4/src/p5/spring.cpp
-math/math.hpp
-/home/jd/Desktop/p4/src/p5/math/math.hpp
-math/vector.hpp
-/home/jd/Desktop/p4/src/p5/math/vector.hpp
-math/quaternion.hpp
-/home/jd/Desktop/p4/src/p5/math/quaternion.hpp
-math/matrix.hpp
-/home/jd/Desktop/p4/src/p5/math/matrix.hpp
-p5/spring.hpp
-/home/jd/Desktop/p4/src/p5/p5/spring.hpp
-p5/body.hpp
-/home/jd/Desktop/p4/src/p5/p5/body.hpp
-p5/spherebody.hpp
-/home/jd/Desktop/p4/src/p5/p5/spherebody.hpp
-iostream
--
-
 /home/jd/Desktop/p4/src/p5/spring.hpp
 p5/body.hpp
 /home/jd/Desktop/p4/src/p5/p5/body.hpp

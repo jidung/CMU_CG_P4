@@ -38,14 +38,20 @@ void Spring::step( real_t dt )
     Vector3 offset2 = body2->orientation * body2_offset;
 
     Vector3 direction = (body1->position + offset1) - (body2->position + offset2);
-    Vector3 displacement = (length(direction) - equilibrium) * normalize(direction);
-    force = - constant * displacement - damping * displacement * dt;
+
+    Vector3 normalized_dir = normalize(direction);
+
+    Vector3 velocity_component = dot(body1->velocity, normalized_dir) * normalized_dir;
+    Vector3 displacement = (length(direction) - equilibrium) * normalized_dir;
+    force = - constant * displacement - damping * velocity_component / dt;
 
     body1->apply_force(force, offset1);
+
     
     direction = (body2->position + offset1) - (body1->position + offset2);
+    velocity_component = dot(body2->velocity, normalize(direction)) * normalized_dir;
     displacement = (length(direction) - equilibrium) * normalize(direction);
-    force = - constant * displacement - damping * displacement / dt;
+    force = - constant * displacement - damping * velocity_component / dt;
 
     body2->apply_force(force, offset2);
 

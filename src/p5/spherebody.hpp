@@ -21,8 +21,8 @@ public:
 
     SphereBody( Sphere* geom );
     virtual ~SphereBody() { }
-    Vector3 acceleration( real_t dt, Vector3 velocity, real_t motion_damping );
-    Vector3 angular_acceleration( real_t dt, Vector3 velocity, real_t motion_damping );
+    Vector3 acceleration( real_t dt, Vector3 velocity);
+    Vector3 angular_acceleration( real_t dt, Vector3 velocity);
     virtual Vector3 step_position( real_t dt, real_t motion_damping );
     virtual Vector3 step_orientation( real_t dt, real_t motion_damping );
     virtual void apply_force( const Vector3& f, const Vector3& offset );
