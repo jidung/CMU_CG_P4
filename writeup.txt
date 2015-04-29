@@ -1,64 +1,100 @@
-
-Describe the required features you have implemented, and which you have not.
-if you have missing features, be sure to explain how much you accomplished.
-Describe any major design decisions and descriptions of your algorithms.
-You should detail anything you think we need to know to understand your code.
-
+writeup.txt
 ----------------------------------------------------------------------
-2015 Spring Computer Graphics Assignment 4 - Physics Simulation: 
-    Checkpoint Submission
+2015 Spring Computer Graphics Assignment 4 - Physics Simulation 
 Minoong Ji (minwongj@andrew.cmu.edu)
 Professor Nancy Pollard
 Carnegie Mellon University
 ----------------------------------------------------------------------
 
+This program simulates basic physics including collisions, force, torque,
+etc.
+
+command to build:
+cd build && rm -rf * && cmake ../src && make install
 
 ----------------------------------------------------------------------
-Implemented Features - Checkpoint
+Implemented Features
 ----------------------------------------------------------------------
 
-All minimum requirements are implemented.
+All basic requirements are implemented.
 
 - All collision detections
 - Bound Volumes (Axis-Aligned Bounding Boxes)
+- Applying force and torque
 - Runge-Kutta 4 Integration
-- Spring functionality 
+- Springs
 
+Follwing additional feature is implemented.
 
+- A game "Toss-Da-Balls!"
+	Command to run:
+	./p5 scenes/game.scene
 
 ----------------------------------------------------------------------
-Design
+Design Decisions
 ----------------------------------------------------------------------
+
+Design Directions
+
+- Utilize provided structure as much as possible.
+- Reduce unnecessary operations (eg. constructing transform matrix every frame)
+ as much as possible.
+
+Bounding Volume Hierarchy
 
 - Axis-Aligned Bounding Boxes
-Models have AABB.
-they are constructed by make->AABB() function after all the meshes are loaded in PhysicsApplication::initialize() in main.cpp
+	Created AABB data structure in Geometry class.
+	AABBs are constructed in main.cpp, with a function call make_AABB().
+	This process is done in PhysicsApplication::initialize(), after all the
+	meshes are loaded into the scene object.
+	make_AABB() is declared as a pure virtual function and classes that inherit
+	Geometry implements it.
+
+	Since AABB should be axis-aligned and should contain all the vertices of
+	each object, transform matrices should have bulit before make_AABB() is
+	called.
+	
+	make_transformation_matrix() and make_inverse_transformation_matrix() is
+	called load_scene() in in scene_loader.cpp, whenever the loader parses
+	geometry objects.
+
+- "Broad phase" pass
+	"Broad phase" pass is not implemented because of the following reasons.
+	
+	A simple octree structure was reviewed but because of the characteristics
+	of scenes provided that there are not many bounding boxes, it was possible 
+	to expect that the structure will harm the performance.
+
+	Adaptive octree or Kd-tree were likely enhance performance but it was hard
+	to expect dramatic performance change compared to the cost of implementation.
 
 ---------------------------------------------------------------------
-Additional Feature - A simple game ("Toss-A-Ball!")
+Additional Feature - A simple game ("Toss-Da-Balls!")
 ----------------------------------------------------------------------
 
-How to Run
+1) How to Run
+	build the project and run with the command './p5 scenes/game.scene'
 
-build & run './p5 scenes/game.scene'
+2) Rule
+	You have to control a pad and block balls from hitting the deadly red ground.
+	Try to beat developer's best time!
+	Concentration and good sense of space are the keys to win!
 
-Rule
+3) Controls
+	'i' move forward
+	'k' move backward
+	'j' move left
+	'l' move right
 
-You have to control a pad and block balls from hitting the deadly red ground. Concentration is the key!
+4) Implementation
 
-Controls
-
-'i' move forward
-'k' move backward
-'j' move left
-'l' move right
-
-Implementation
-
-application/camera_roam.cpp and hpp were copied and modified to create control for the pad (gameplane)
-transform matrix and inverse transform matrix is recalculated every physics step to translate AABB and vertices of the pad (p5/physics.cpp)
-p5/main.cpp was modified to instantiate gameplane_roam object
-game is over when a ball hits the ground. Shell prompts "GAME OVER!!!" message and elapsed time. 
-
-CMakefielList.txt under /src/application/ is modified to include gameplane_roam.cpp and gameplane_roam.hpp to the build
+- application/camera_roam.cpp and hpp were copied and modified to create control for 
+the pad (gameplane)
+- transform matrix and inverse transform matrix is recalculated every physics step 
+to translate AABB and vertices of the pad (p5/physics.cpp)
+- p5/main.cpp was modified to instantiate gameplane_roam object
+- game is over when a ball hits the ground. Shell prompts "GAME OVER!!!" message and \
+elapsed time. 
+- CMakefielList.txt under /src/application/ is modified to include gameplane_roam.cpp 
+and gameplane_roam.hpp to the build structure
 

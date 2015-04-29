@@ -34,11 +34,14 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build
 
 # Include any dependencies generated for this target.
 include math/CMakeFiles/math.dir/depend.make
@@ -50,18 +53,18 @@ include math/CMakeFiles/math.dir/progress.make
 include math/CMakeFiles/math.dir/flags.make
 
 math/CMakeFiles/math.dir/camera.cpp.o: math/CMakeFiles/math.dir/flags.make
-math/CMakeFiles/math.dir/camera.cpp.o: /home/jd/Desktop/p4/src/math/camera.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_1)
+math/CMakeFiles/math.dir/camera.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/camera.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object math/CMakeFiles/math.dir/camera.cpp.o"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/camera.cpp.o -c /home/jd/Desktop/p4/src/math/camera.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/camera.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/camera.cpp
 
 math/CMakeFiles/math.dir/camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math.dir/camera.cpp.i"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/math/camera.cpp > CMakeFiles/math.dir/camera.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/camera.cpp > CMakeFiles/math.dir/camera.cpp.i
 
 math/CMakeFiles/math.dir/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math.dir/camera.cpp.s"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/math/camera.cpp -o CMakeFiles/math.dir/camera.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/camera.cpp -o CMakeFiles/math.dir/camera.cpp.s
 
 math/CMakeFiles/math.dir/camera.cpp.o.requires:
 .PHONY : math/CMakeFiles/math.dir/camera.cpp.o.requires
@@ -73,18 +76,18 @@ math/CMakeFiles/math.dir/camera.cpp.o.provides: math/CMakeFiles/math.dir/camera.
 math/CMakeFiles/math.dir/camera.cpp.o.provides.build: math/CMakeFiles/math.dir/camera.cpp.o
 
 math/CMakeFiles/math.dir/color.cpp.o: math/CMakeFiles/math.dir/flags.make
-math/CMakeFiles/math.dir/color.cpp.o: /home/jd/Desktop/p4/src/math/color.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_2)
+math/CMakeFiles/math.dir/color.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/color.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object math/CMakeFiles/math.dir/color.cpp.o"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/color.cpp.o -c /home/jd/Desktop/p4/src/math/color.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/color.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/color.cpp
 
 math/CMakeFiles/math.dir/color.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math.dir/color.cpp.i"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/math/color.cpp > CMakeFiles/math.dir/color.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/color.cpp > CMakeFiles/math.dir/color.cpp.i
 
 math/CMakeFiles/math.dir/color.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math.dir/color.cpp.s"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/math/color.cpp -o CMakeFiles/math.dir/color.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/color.cpp -o CMakeFiles/math.dir/color.cpp.s
 
 math/CMakeFiles/math.dir/color.cpp.o.requires:
 .PHONY : math/CMakeFiles/math.dir/color.cpp.o.requires
@@ -96,18 +99,18 @@ math/CMakeFiles/math.dir/color.cpp.o.provides: math/CMakeFiles/math.dir/color.cp
 math/CMakeFiles/math.dir/color.cpp.o.provides.build: math/CMakeFiles/math.dir/color.cpp.o
 
 math/CMakeFiles/math.dir/math.cpp.o: math/CMakeFiles/math.dir/flags.make
-math/CMakeFiles/math.dir/math.cpp.o: /home/jd/Desktop/p4/src/math/math.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_3)
+math/CMakeFiles/math.dir/math.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/math.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object math/CMakeFiles/math.dir/math.cpp.o"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/math.cpp.o -c /home/jd/Desktop/p4/src/math/math.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/math.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/math.cpp
 
 math/CMakeFiles/math.dir/math.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math.dir/math.cpp.i"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/math/math.cpp > CMakeFiles/math.dir/math.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/math.cpp > CMakeFiles/math.dir/math.cpp.i
 
 math/CMakeFiles/math.dir/math.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math.dir/math.cpp.s"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/math/math.cpp -o CMakeFiles/math.dir/math.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/math.cpp -o CMakeFiles/math.dir/math.cpp.s
 
 math/CMakeFiles/math.dir/math.cpp.o.requires:
 .PHONY : math/CMakeFiles/math.dir/math.cpp.o.requires
@@ -119,18 +122,18 @@ math/CMakeFiles/math.dir/math.cpp.o.provides: math/CMakeFiles/math.dir/math.cpp.
 math/CMakeFiles/math.dir/math.cpp.o.provides.build: math/CMakeFiles/math.dir/math.cpp.o
 
 math/CMakeFiles/math.dir/matrix.cpp.o: math/CMakeFiles/math.dir/flags.make
-math/CMakeFiles/math.dir/matrix.cpp.o: /home/jd/Desktop/p4/src/math/matrix.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_4)
+math/CMakeFiles/math.dir/matrix.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/matrix.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object math/CMakeFiles/math.dir/matrix.cpp.o"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/matrix.cpp.o -c /home/jd/Desktop/p4/src/math/matrix.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/matrix.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/matrix.cpp
 
 math/CMakeFiles/math.dir/matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math.dir/matrix.cpp.i"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/math/matrix.cpp > CMakeFiles/math.dir/matrix.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/matrix.cpp > CMakeFiles/math.dir/matrix.cpp.i
 
 math/CMakeFiles/math.dir/matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math.dir/matrix.cpp.s"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/math/matrix.cpp -o CMakeFiles/math.dir/matrix.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/matrix.cpp -o CMakeFiles/math.dir/matrix.cpp.s
 
 math/CMakeFiles/math.dir/matrix.cpp.o.requires:
 .PHONY : math/CMakeFiles/math.dir/matrix.cpp.o.requires
@@ -142,18 +145,18 @@ math/CMakeFiles/math.dir/matrix.cpp.o.provides: math/CMakeFiles/math.dir/matrix.
 math/CMakeFiles/math.dir/matrix.cpp.o.provides.build: math/CMakeFiles/math.dir/matrix.cpp.o
 
 math/CMakeFiles/math.dir/quaternion.cpp.o: math/CMakeFiles/math.dir/flags.make
-math/CMakeFiles/math.dir/quaternion.cpp.o: /home/jd/Desktop/p4/src/math/quaternion.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_5)
+math/CMakeFiles/math.dir/quaternion.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/quaternion.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object math/CMakeFiles/math.dir/quaternion.cpp.o"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/quaternion.cpp.o -c /home/jd/Desktop/p4/src/math/quaternion.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/quaternion.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/quaternion.cpp
 
 math/CMakeFiles/math.dir/quaternion.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math.dir/quaternion.cpp.i"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/math/quaternion.cpp > CMakeFiles/math.dir/quaternion.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/quaternion.cpp > CMakeFiles/math.dir/quaternion.cpp.i
 
 math/CMakeFiles/math.dir/quaternion.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math.dir/quaternion.cpp.s"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/math/quaternion.cpp -o CMakeFiles/math.dir/quaternion.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/quaternion.cpp -o CMakeFiles/math.dir/quaternion.cpp.s
 
 math/CMakeFiles/math.dir/quaternion.cpp.o.requires:
 .PHONY : math/CMakeFiles/math.dir/quaternion.cpp.o.requires
@@ -165,18 +168,18 @@ math/CMakeFiles/math.dir/quaternion.cpp.o.provides: math/CMakeFiles/math.dir/qua
 math/CMakeFiles/math.dir/quaternion.cpp.o.provides.build: math/CMakeFiles/math.dir/quaternion.cpp.o
 
 math/CMakeFiles/math.dir/vector.cpp.o: math/CMakeFiles/math.dir/flags.make
-math/CMakeFiles/math.dir/vector.cpp.o: /home/jd/Desktop/p4/src/math/vector.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_6)
+math/CMakeFiles/math.dir/vector.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/vector.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object math/CMakeFiles/math.dir/vector.cpp.o"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/vector.cpp.o -c /home/jd/Desktop/p4/src/math/vector.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/math.dir/vector.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/vector.cpp
 
 math/CMakeFiles/math.dir/vector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/math.dir/vector.cpp.i"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/math/vector.cpp > CMakeFiles/math.dir/vector.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/vector.cpp > CMakeFiles/math.dir/vector.cpp.i
 
 math/CMakeFiles/math.dir/vector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/math.dir/vector.cpp.s"
-	cd /home/jd/Desktop/p4/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/math/vector.cpp -o CMakeFiles/math.dir/vector.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math/vector.cpp -o CMakeFiles/math.dir/vector.cpp.s
 
 math/CMakeFiles/math.dir/vector.cpp.o.requires:
 .PHONY : math/CMakeFiles/math.dir/vector.cpp.o.requires
@@ -208,8 +211,8 @@ math/libmath.a: math/CMakeFiles/math.dir/vector.cpp.o
 math/libmath.a: math/CMakeFiles/math.dir/build.make
 math/libmath.a: math/CMakeFiles/math.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libmath.a"
-	cd /home/jd/Desktop/p4/build/math && $(CMAKE_COMMAND) -P CMakeFiles/math.dir/cmake_clean_target.cmake
-	cd /home/jd/Desktop/p4/build/math && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/math.dir/link.txt --verbose=$(VERBOSE)
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && $(CMAKE_COMMAND) -P CMakeFiles/math.dir/cmake_clean_target.cmake
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/math.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 math/CMakeFiles/math.dir/build: math/libmath.a
@@ -224,10 +227,10 @@ math/CMakeFiles/math.dir/requires: math/CMakeFiles/math.dir/vector.cpp.o.require
 .PHONY : math/CMakeFiles/math.dir/requires
 
 math/CMakeFiles/math.dir/clean:
-	cd /home/jd/Desktop/p4/build/math && $(CMAKE_COMMAND) -P CMakeFiles/math.dir/cmake_clean.cmake
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math && $(CMAKE_COMMAND) -P CMakeFiles/math.dir/cmake_clean.cmake
 .PHONY : math/CMakeFiles/math.dir/clean
 
 math/CMakeFiles/math.dir/depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jd/Desktop/p4/src /home/jd/Desktop/p4/src/math /home/jd/Desktop/p4/build /home/jd/Desktop/p4/build/math /home/jd/Desktop/p4/build/math/CMakeFiles/math.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/math /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math/CMakeFiles/math.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : math/CMakeFiles/math.dir/depend
 

@@ -38,19 +38,22 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -110,14 +113,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles /home/jd/Desktop/p4/build/math/CMakeFiles/progress.marks
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 math/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles 0
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math/CMakeFiles/progress.marks
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 math/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 math/clean
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 math/clean
 .PHONY : clean
 
 # The main clean target
@@ -126,22 +129,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 math/preinstall
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 math/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 math/preinstall
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 math/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 math/CMakeFiles/math.dir/rule:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 math/CMakeFiles/math.dir/rule
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 math/CMakeFiles/math.dir/rule
 .PHONY : math/CMakeFiles/math.dir/rule
 
 # Convenience name for target.
@@ -150,7 +153,7 @@ math: math/CMakeFiles/math.dir/rule
 
 # fast build rule for target.
 math/fast:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/build
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/build
 .PHONY : math/fast
 
 camera.o: camera.cpp.o
@@ -158,7 +161,7 @@ camera.o: camera.cpp.o
 
 # target to build an object file
 camera.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/camera.cpp.o
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/camera.cpp.o
 .PHONY : camera.cpp.o
 
 camera.i: camera.cpp.i
@@ -166,7 +169,7 @@ camera.i: camera.cpp.i
 
 # target to preprocess a source file
 camera.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/camera.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/camera.cpp.i
 .PHONY : camera.cpp.i
 
 camera.s: camera.cpp.s
@@ -174,7 +177,7 @@ camera.s: camera.cpp.s
 
 # target to generate assembly for a file
 camera.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/camera.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/camera.cpp.s
 .PHONY : camera.cpp.s
 
 color.o: color.cpp.o
@@ -182,7 +185,7 @@ color.o: color.cpp.o
 
 # target to build an object file
 color.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/color.cpp.o
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/color.cpp.o
 .PHONY : color.cpp.o
 
 color.i: color.cpp.i
@@ -190,7 +193,7 @@ color.i: color.cpp.i
 
 # target to preprocess a source file
 color.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/color.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/color.cpp.i
 .PHONY : color.cpp.i
 
 color.s: color.cpp.s
@@ -198,7 +201,7 @@ color.s: color.cpp.s
 
 # target to generate assembly for a file
 color.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/color.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/color.cpp.s
 .PHONY : color.cpp.s
 
 math.o: math.cpp.o
@@ -206,7 +209,7 @@ math.o: math.cpp.o
 
 # target to build an object file
 math.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/math.cpp.o
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/math.cpp.o
 .PHONY : math.cpp.o
 
 math.i: math.cpp.i
@@ -214,7 +217,7 @@ math.i: math.cpp.i
 
 # target to preprocess a source file
 math.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/math.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/math.cpp.i
 .PHONY : math.cpp.i
 
 math.s: math.cpp.s
@@ -222,7 +225,7 @@ math.s: math.cpp.s
 
 # target to generate assembly for a file
 math.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/math.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/math.cpp.s
 .PHONY : math.cpp.s
 
 matrix.o: matrix.cpp.o
@@ -230,7 +233,7 @@ matrix.o: matrix.cpp.o
 
 # target to build an object file
 matrix.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/matrix.cpp.o
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/matrix.cpp.o
 .PHONY : matrix.cpp.o
 
 matrix.i: matrix.cpp.i
@@ -238,7 +241,7 @@ matrix.i: matrix.cpp.i
 
 # target to preprocess a source file
 matrix.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/matrix.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/matrix.cpp.i
 .PHONY : matrix.cpp.i
 
 matrix.s: matrix.cpp.s
@@ -246,7 +249,7 @@ matrix.s: matrix.cpp.s
 
 # target to generate assembly for a file
 matrix.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/matrix.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
 quaternion.o: quaternion.cpp.o
@@ -254,7 +257,7 @@ quaternion.o: quaternion.cpp.o
 
 # target to build an object file
 quaternion.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/quaternion.cpp.o
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/quaternion.cpp.o
 .PHONY : quaternion.cpp.o
 
 quaternion.i: quaternion.cpp.i
@@ -262,7 +265,7 @@ quaternion.i: quaternion.cpp.i
 
 # target to preprocess a source file
 quaternion.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/quaternion.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/quaternion.cpp.i
 .PHONY : quaternion.cpp.i
 
 quaternion.s: quaternion.cpp.s
@@ -270,7 +273,7 @@ quaternion.s: quaternion.cpp.s
 
 # target to generate assembly for a file
 quaternion.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/quaternion.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/quaternion.cpp.s
 .PHONY : quaternion.cpp.s
 
 vector.o: vector.cpp.o
@@ -278,7 +281,7 @@ vector.o: vector.cpp.o
 
 # target to build an object file
 vector.cpp.o:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/vector.cpp.o
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/vector.cpp.o
 .PHONY : vector.cpp.o
 
 vector.i: vector.cpp.i
@@ -286,7 +289,7 @@ vector.i: vector.cpp.i
 
 # target to preprocess a source file
 vector.cpp.i:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/vector.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/vector.cpp.i
 .PHONY : vector.cpp.i
 
 vector.s: vector.cpp.s
@@ -294,7 +297,7 @@ vector.s: vector.cpp.s
 
 # target to generate assembly for a file
 vector.cpp.s:
-	cd /home/jd/Desktop/p4/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/vector.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f math/CMakeFiles/math.dir/build.make math/CMakeFiles/math.dir/vector.cpp.s
 .PHONY : vector.cpp.s
 
 # Help Target
@@ -339,6 +342,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

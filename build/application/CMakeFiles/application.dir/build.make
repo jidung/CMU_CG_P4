@@ -34,11 +34,14 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build
 
 # Include any dependencies generated for this target.
 include application/CMakeFiles/application.dir/depend.make
@@ -50,18 +53,18 @@ include application/CMakeFiles/application.dir/progress.make
 include application/CMakeFiles/application.dir/flags.make
 
 application/CMakeFiles/application.dir/application.cpp.o: application/CMakeFiles/application.dir/flags.make
-application/CMakeFiles/application.dir/application.cpp.o: /home/jd/Desktop/p4/src/application/application.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_1)
+application/CMakeFiles/application.dir/application.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/application.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object application/CMakeFiles/application.dir/application.cpp.o"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/application.cpp.o -c /home/jd/Desktop/p4/src/application/application.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/application.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/application.cpp
 
 application/CMakeFiles/application.dir/application.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/application.dir/application.cpp.i"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/application/application.cpp > CMakeFiles/application.dir/application.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/application.cpp > CMakeFiles/application.dir/application.cpp.i
 
 application/CMakeFiles/application.dir/application.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/application.dir/application.cpp.s"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/application/application.cpp -o CMakeFiles/application.dir/application.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/application.cpp -o CMakeFiles/application.dir/application.cpp.s
 
 application/CMakeFiles/application.dir/application.cpp.o.requires:
 .PHONY : application/CMakeFiles/application.dir/application.cpp.o.requires
@@ -73,18 +76,18 @@ application/CMakeFiles/application.dir/application.cpp.o.provides: application/C
 application/CMakeFiles/application.dir/application.cpp.o.provides.build: application/CMakeFiles/application.dir/application.cpp.o
 
 application/CMakeFiles/application.dir/camera_roam.cpp.o: application/CMakeFiles/application.dir/flags.make
-application/CMakeFiles/application.dir/camera_roam.cpp.o: /home/jd/Desktop/p4/src/application/camera_roam.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_2)
+application/CMakeFiles/application.dir/camera_roam.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/camera_roam.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object application/CMakeFiles/application.dir/camera_roam.cpp.o"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/camera_roam.cpp.o -c /home/jd/Desktop/p4/src/application/camera_roam.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/camera_roam.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/camera_roam.cpp
 
 application/CMakeFiles/application.dir/camera_roam.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/application.dir/camera_roam.cpp.i"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/application/camera_roam.cpp > CMakeFiles/application.dir/camera_roam.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/camera_roam.cpp > CMakeFiles/application.dir/camera_roam.cpp.i
 
 application/CMakeFiles/application.dir/camera_roam.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/application.dir/camera_roam.cpp.s"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/application/camera_roam.cpp -o CMakeFiles/application.dir/camera_roam.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/camera_roam.cpp -o CMakeFiles/application.dir/camera_roam.cpp.s
 
 application/CMakeFiles/application.dir/camera_roam.cpp.o.requires:
 .PHONY : application/CMakeFiles/application.dir/camera_roam.cpp.o.requires
@@ -96,18 +99,18 @@ application/CMakeFiles/application.dir/camera_roam.cpp.o.provides: application/C
 application/CMakeFiles/application.dir/camera_roam.cpp.o.provides.build: application/CMakeFiles/application.dir/camera_roam.cpp.o
 
 application/CMakeFiles/application.dir/imageio.cpp.o: application/CMakeFiles/application.dir/flags.make
-application/CMakeFiles/application.dir/imageio.cpp.o: /home/jd/Desktop/p4/src/application/imageio.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_3)
+application/CMakeFiles/application.dir/imageio.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/imageio.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object application/CMakeFiles/application.dir/imageio.cpp.o"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/imageio.cpp.o -c /home/jd/Desktop/p4/src/application/imageio.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/imageio.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/imageio.cpp
 
 application/CMakeFiles/application.dir/imageio.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/application.dir/imageio.cpp.i"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/application/imageio.cpp > CMakeFiles/application.dir/imageio.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/imageio.cpp > CMakeFiles/application.dir/imageio.cpp.i
 
 application/CMakeFiles/application.dir/imageio.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/application.dir/imageio.cpp.s"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/application/imageio.cpp -o CMakeFiles/application.dir/imageio.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/imageio.cpp -o CMakeFiles/application.dir/imageio.cpp.s
 
 application/CMakeFiles/application.dir/imageio.cpp.o.requires:
 .PHONY : application/CMakeFiles/application.dir/imageio.cpp.o.requires
@@ -119,18 +122,18 @@ application/CMakeFiles/application.dir/imageio.cpp.o.provides: application/CMake
 application/CMakeFiles/application.dir/imageio.cpp.o.provides.build: application/CMakeFiles/application.dir/imageio.cpp.o
 
 application/CMakeFiles/application.dir/scene_loader.cpp.o: application/CMakeFiles/application.dir/flags.make
-application/CMakeFiles/application.dir/scene_loader.cpp.o: /home/jd/Desktop/p4/src/application/scene_loader.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_4)
+application/CMakeFiles/application.dir/scene_loader.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/scene_loader.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object application/CMakeFiles/application.dir/scene_loader.cpp.o"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/scene_loader.cpp.o -c /home/jd/Desktop/p4/src/application/scene_loader.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/scene_loader.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/scene_loader.cpp
 
 application/CMakeFiles/application.dir/scene_loader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/application.dir/scene_loader.cpp.i"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/application/scene_loader.cpp > CMakeFiles/application.dir/scene_loader.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/scene_loader.cpp > CMakeFiles/application.dir/scene_loader.cpp.i
 
 application/CMakeFiles/application.dir/scene_loader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/application.dir/scene_loader.cpp.s"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/application/scene_loader.cpp -o CMakeFiles/application.dir/scene_loader.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/scene_loader.cpp -o CMakeFiles/application.dir/scene_loader.cpp.s
 
 application/CMakeFiles/application.dir/scene_loader.cpp.o.requires:
 .PHONY : application/CMakeFiles/application.dir/scene_loader.cpp.o.requires
@@ -142,18 +145,18 @@ application/CMakeFiles/application.dir/scene_loader.cpp.o.provides: application/
 application/CMakeFiles/application.dir/scene_loader.cpp.o.provides.build: application/CMakeFiles/application.dir/scene_loader.cpp.o
 
 application/CMakeFiles/application.dir/gameplane_roam.cpp.o: application/CMakeFiles/application.dir/flags.make
-application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/application/gameplane_roam.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_5)
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/gameplane_roam.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object application/CMakeFiles/application.dir/gameplane_roam.cpp.o"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/gameplane_roam.cpp.o -c /home/jd/Desktop/p4/src/application/gameplane_roam.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/gameplane_roam.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/gameplane_roam.cpp
 
 application/CMakeFiles/application.dir/gameplane_roam.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/application.dir/gameplane_roam.cpp.i"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/application/gameplane_roam.cpp > CMakeFiles/application.dir/gameplane_roam.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/gameplane_roam.cpp > CMakeFiles/application.dir/gameplane_roam.cpp.i
 
 application/CMakeFiles/application.dir/gameplane_roam.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/application.dir/gameplane_roam.cpp.s"
-	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/application/gameplane_roam.cpp -o CMakeFiles/application.dir/gameplane_roam.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application/gameplane_roam.cpp -o CMakeFiles/application.dir/gameplane_roam.cpp.s
 
 application/CMakeFiles/application.dir/gameplane_roam.cpp.o.requires:
 .PHONY : application/CMakeFiles/application.dir/gameplane_roam.cpp.o.requires
@@ -183,8 +186,8 @@ application/libapplication.a: application/CMakeFiles/application.dir/gameplane_r
 application/libapplication.a: application/CMakeFiles/application.dir/build.make
 application/libapplication.a: application/CMakeFiles/application.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libapplication.a"
-	cd /home/jd/Desktop/p4/build/application && $(CMAKE_COMMAND) -P CMakeFiles/application.dir/cmake_clean_target.cmake
-	cd /home/jd/Desktop/p4/build/application && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/application.dir/link.txt --verbose=$(VERBOSE)
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && $(CMAKE_COMMAND) -P CMakeFiles/application.dir/cmake_clean_target.cmake
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/application.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 application/CMakeFiles/application.dir/build: application/libapplication.a
@@ -198,10 +201,10 @@ application/CMakeFiles/application.dir/requires: application/CMakeFiles/applicat
 .PHONY : application/CMakeFiles/application.dir/requires
 
 application/CMakeFiles/application.dir/clean:
-	cd /home/jd/Desktop/p4/build/application && $(CMAKE_COMMAND) -P CMakeFiles/application.dir/cmake_clean.cmake
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application && $(CMAKE_COMMAND) -P CMakeFiles/application.dir/cmake_clean.cmake
 .PHONY : application/CMakeFiles/application.dir/clean
 
 application/CMakeFiles/application.dir/depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jd/Desktop/p4/src /home/jd/Desktop/p4/src/application /home/jd/Desktop/p4/build /home/jd/Desktop/p4/build/application /home/jd/Desktop/p4/build/application/CMakeFiles/application.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/application /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application/CMakeFiles/application.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : application/CMakeFiles/application.dir/depend
 
