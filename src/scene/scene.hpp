@@ -61,7 +61,7 @@ public:
     Color3 ambient_light;
     /// the refraction index of air
     real_t refractive_index;
-
+    
     /// Creates a new empty scene.
     Scene();
 

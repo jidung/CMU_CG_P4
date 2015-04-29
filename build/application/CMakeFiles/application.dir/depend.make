@@ -57,6 +57,29 @@ application/CMakeFiles/application.dir/camera_roam.cpp.o: /usr/include/SDL/SDL_v
 application/CMakeFiles/application.dir/camera_roam.cpp.o: /usr/include/SDL/begin_code.h
 application/CMakeFiles/application.dir/camera_roam.cpp.o: /usr/include/SDL/close_code.h
 
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/application/application.hpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/application/gameplane_roam.cpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/application/gameplane_roam.hpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/math/math.hpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/math/quaternion.hpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/math/vector.hpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/p5/body.hpp
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_active.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_config.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_error.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_events.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_joystick.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_keyboard.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_keysym.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_mouse.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_platform.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_quit.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_rwops.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_stdinc.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/SDL_video.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/begin_code.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /usr/include/SDL/close_code.h
+
 application/CMakeFiles/application.dir/imageio.cpp.o: /home/jd/Desktop/p4/src/application/application.hpp
 application/CMakeFiles/application.dir/imageio.cpp.o: /home/jd/Desktop/p4/src/application/imageio.cpp
 application/CMakeFiles/application.dir/imageio.cpp.o: /home/jd/Desktop/p4/src/application/imageio.hpp

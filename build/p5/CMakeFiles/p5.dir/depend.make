@@ -26,6 +26,7 @@ p5/CMakeFiles/p5.dir/collisions.cpp.o: /usr/include/SDL/SDL_platform.h
 
 p5/CMakeFiles/p5.dir/main.cpp.o: /home/jd/Desktop/p4/src/application/application.hpp
 p5/CMakeFiles/p5.dir/main.cpp.o: /home/jd/Desktop/p4/src/application/camera_roam.hpp
+p5/CMakeFiles/p5.dir/main.cpp.o: /home/jd/Desktop/p4/src/application/gameplane_roam.hpp
 p5/CMakeFiles/p5.dir/main.cpp.o: /home/jd/Desktop/p4/src/application/imageio.hpp
 p5/CMakeFiles/p5.dir/main.cpp.o: /home/jd/Desktop/p4/src/application/opengl.hpp
 p5/CMakeFiles/p5.dir/main.cpp.o: /home/jd/Desktop/p4/src/application/scene_loader.hpp

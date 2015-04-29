@@ -23,6 +23,7 @@ public:
 	real_t collision_damping;
 	real_t motion_damping;  // m.ji
     real_t rotation_damping; // m.ji
+    Body* gameplane; // m.ji
 
     Physics();
     ~Physics();
@@ -40,6 +41,22 @@ public:
     size_t num_springs() const;
 
     void reset();
+    
+    // added by m.ji
+    ModelBody* get_gameplane () {
+
+        if (num_models() == 0)
+            return NULL;
+
+        if (models[0]->id == 9999)
+            return models[0];
+        else
+            return NULL;
+    }
+
+    bool getIsGameOver () {
+        return isGameOver;
+    }
 
 private:
     typedef std::vector< Spring* > SpringList;
@@ -53,7 +70,7 @@ private:
     PlaneList planes;
     TriangleList triangles;
     ModelList models;
-    
+
     Vector3 rk4( Vector3(Physics::*f)(Vector3, Vector3, real_t), Vector3 x, Vector3 current_x, real_t dt )   //m.ji
     {
         Vector3 k1 = dt * (*this.*f)(x, current_x, dt),
@@ -69,6 +86,8 @@ private:
         return x * dt + current_x; 
     }
 
+    bool isGameOver;    // for game. m.ji
+    real_t elapsed_time;    // for game. m.ji
 };
 
 }

@@ -20,7 +20,6 @@ SphereBody::SphereBody( Sphere* geom )
     force = Vector3::Zero();
     torque = Vector3::Zero();
 
-    gravity = Vector3::Zero(); // jd
     angular_accel = Vector3::Zero();
 }
 
@@ -81,12 +80,6 @@ Vector3 SphereBody::step_orientation( real_t dt, real_t motion_damping )
     angular_velocity = (angular_velocity + (torque / mass) * dt) * (1 - motion_damping);
 
     return Vector3::Zero();
-}
-
-void SphereBody::apply_gravity( const Vector3& gravity ) 
-{
-    this->gravity = gravity;
-    force = gravity * mass; 
 }
 
 void SphereBody::apply_force( const Vector3& f, const Vector3& offset )

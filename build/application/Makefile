@@ -201,6 +201,30 @@ camera_roam.cpp.s:
 	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/camera_roam.cpp.s
 .PHONY : camera_roam.cpp.s
 
+gameplane_roam.o: gameplane_roam.cpp.o
+.PHONY : gameplane_roam.o
+
+# target to build an object file
+gameplane_roam.cpp.o:
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/gameplane_roam.cpp.o
+.PHONY : gameplane_roam.cpp.o
+
+gameplane_roam.i: gameplane_roam.cpp.i
+.PHONY : gameplane_roam.i
+
+# target to preprocess a source file
+gameplane_roam.cpp.i:
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/gameplane_roam.cpp.i
+.PHONY : gameplane_roam.cpp.i
+
+gameplane_roam.s: gameplane_roam.cpp.s
+.PHONY : gameplane_roam.s
+
+# target to generate assembly for a file
+gameplane_roam.cpp.s:
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/gameplane_roam.cpp.s
+.PHONY : gameplane_roam.cpp.s
+
 imageio.o: imageio.cpp.o
 .PHONY : imageio.o
 
@@ -268,6 +292,9 @@ help:
 	@echo "... camera_roam.o"
 	@echo "... camera_roam.i"
 	@echo "... camera_roam.s"
+	@echo "... gameplane_roam.o"
+	@echo "... gameplane_roam.i"
+	@echo "... gameplane_roam.s"
 	@echo "... imageio.o"
 	@echo "... imageio.i"
 	@echo "... imageio.s"

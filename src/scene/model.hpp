@@ -55,6 +55,19 @@ public:
                 aabb.max.z = pos.z;
         }
     }
+
+    void update_matrices_and_aabb()
+    {
+        Matrix4 new_mat;
+        make_transformation_matrix (&new_mat, position, orientation, scale);
+        
+        mat = new_mat;
+        aabb.min = mat.transform_point(invMat.transform_point(aabb.min));
+        aabb.max = mat.transform_point(invMat.transform_point(aabb.max));
+        
+        make_inverse_transformation_matrix (&invMat, position, orientation, scale);
+
+    }
 };
 
 

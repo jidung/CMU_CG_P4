@@ -215,6 +215,11 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         Vector3 v2 = body2.model->mat.transform_point (vertices[triangles[i].vertices[1]].position);
         Vector3 v3 = body2.model->mat.transform_point (vertices[triangles[i].vertices[2]].position);
        
+        /*
+        Vector3 v1 = body2.model->mat.transform_point(body2.model->invMat.transform_point (vertices[triangles[i].vertices[0]].position) + body2.model->position);
+        Vector3 v2 = body2.model->mat.transform_point(body2.model->invMat.transform_point (vertices[triangles[i].vertices[1]].position) + body2.model->position);
+        Vector3 v3 = body2.model->mat.transform_point(body2.model->invMat.transform_point (vertices[triangles[i].vertices[2]].position) + body2.model->position);
+        */
         Vector3 n = normalize ( cross (v2 - v1, v3 - v1) );  // triangle normal
 
         Vector3 p2 = v1;
@@ -236,7 +241,7 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         if ( w < 0 ) {  // point p is outside of this edge
             p_ = ( (dot(p-v1, v2-v1) * (v2-v1)) / dot(v2-v1, v2-v1) ) + v1;
             if ( distance(p1, p_) < body1.radius ) {
-                std::cout << "Sphere-Model collision detected2" << std::endl;
+                //std::cout << "Sphere-Model collision detected2" << std::endl;
                 new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
                 //body1.velocity = new_v * collision_damping;
                 //return true;
@@ -253,7 +258,7 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         if ( u < 0 ) {
             p_ = ( (dot(p-v2, v3-v2) * (v3-v2)) / dot(v3-v2, v3-v2) ) + v2;
             if ( distance(p1, p_) < body1.radius ) {
-                std::cout << "Sphere-Model collision detected3" << std::endl;
+                //std::cout << "Sphere-Model collision detected3" << std::endl;
                 new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
                 //body1.velocity = new_v * collision_damping;
                 //return true;
@@ -270,7 +275,7 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         if ( v < 0 ) {
             p_ = (dot(p-v3, v1-v3) * (v1-v3)) / dot(v1-v3, v1-v3) + v3;
             if ( distance(p1, p_) < body1.radius ) {
-                std::cout << "Sphere-Model collision detected4" << std::endl;
+                //std::cout << "Sphere-Model collision detected4" << std::endl;
                 new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
                 //body1.velocity = new_v * collision_damping;
                 //return true;
@@ -282,7 +287,7 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
 
         if ( fabs(d) < body1.radius && !hit)
         {
-            std::cout << "Sphere-Model collision detected1" << std::endl;
+            //std::cout << "Sphere-Model collision detected1" << std::endl;
             new_v = body1.velocity - 2.0 * dot (body1.velocity, n) * n;
             //return true;
             hit = true;
@@ -295,7 +300,7 @@ bool collides( SphereBody& body1, ModelBody& body2, real_t collision_damping )
         if ( squared_length (body1.velocity) < EPS )
             body1.velocity = Vector3::Zero();
 
-        std::cout << body2.id << std::endl;
+        //std::cout << body2.id << std::endl;
         return true;
     }
     else

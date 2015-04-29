@@ -44,7 +44,7 @@ build & run './p5 scenes/game.scene'
 
 Rule
 
-You have to control a pad and block balls from hitting the deadly red ground. Concentration is the key!
+You have to control a pad and block balls from hitting the deadly red ground!
 
 Controls
 
@@ -58,7 +58,7 @@ Implementation
 application/camera_roam.cpp and hpp were copied and modified to create control for the pad (gameplane)
 transform matrix and inverse transform matrix is recalculated every physics step to translate AABB and vertices of the pad (p5/physics.cpp)
 p5/main.cpp was modified to instantiate gameplane_roam object
-game is over when a ball hits the ground. Shell prompts "GAME OVER!!!" message and elapsed time. 
+game pauses when a ball hits the ground.
 
 CMakefielList.txt under /src/application/ is modified to include gameplane_roam.cpp and gameplane_roam.hpp to the build
 

@@ -20,18 +20,6 @@ void Spring::step( real_t dt )
 {
     // TODO apply forces to attached bodies
    
-    // offsets seem to be in world coordinate.
-    /*
-    Vector3 force;
-    Vector3 displacement = (body1->position - body1_offset);
-
-    force = - constant * displacement * equilibrium - damping * displacement / dt;
-    force *= dt;
-
-    // std::cout << dot (force, body2_offset) << std::endl;
-    body1->apply_force(force, body1_offset);
-*/
-
     Vector3 force;
 
     Vector3 offset1 = body1->orientation * body1_offset;
@@ -49,7 +37,8 @@ void Spring::step( real_t dt )
 
     
     direction = (body2->position + offset1) - (body1->position + offset2);
-    velocity_component = dot(body2->velocity, normalize(direction)) * normalized_dir;
+    normalized_dir = normalize(direction);
+    velocity_component = dot(body2->velocity, normalized_dir) * normalized_dir;
     displacement = (length(direction) - equilibrium) * normalize(direction);
     force = - constant * displacement - damping * velocity_component / dt;
 

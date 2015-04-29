@@ -3,6 +3,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/application.dir/camera_roam.cpp.o"
   "CMakeFiles/application.dir/imageio.cpp.o"
   "CMakeFiles/application.dir/scene_loader.cpp.o"
+  "CMakeFiles/application.dir/gameplane_roam.cpp.o"
   "libapplication.pdb"
   "libapplication.a"
 )

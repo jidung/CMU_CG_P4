@@ -9,6 +9,7 @@
 
 #include "application/application.hpp"
 #include "application/camera_roam.hpp"
+#include "application/gameplane_roam.hpp"   // added by m.ji
 #include "application/imageio.hpp"
 #include "application/scene_loader.hpp"
 #include "application/opengl.hpp"
@@ -76,7 +77,11 @@ public:
     // the camera
     CameraRoamControl camera_control;
 
+    // game plane. m.ji
+    GameplaneControl gameplane_control;
+
     bool pause;
+    bool gameover; // added by m.ji
     real_t speed;
 
     // the image buffer for raytracing
@@ -91,6 +96,7 @@ bool PhysicsApplication::initialize()
     camera_control.camera = scene.camera;
     bool load_gl = options.open_window;
     pause = false;
+    gameover = false;
     speed = 1.0;
 
     try {
@@ -129,6 +135,10 @@ bool PhysicsApplication::initialize()
             }
             */
         }
+ 
+        // copy gameplane into gameplane control so it can be moved via mouse. added by m.ji
+        //gameplane_control.gameplane = scene.get_physics()->gameplane;
+        gameplane_control.gameplane = scene.get_physics()->get_gameplane();
 
     } catch ( std::bad_alloc const& ) {
         std::cout << "Out of memory error while initializing scene\n.";
@@ -177,12 +187,18 @@ void PhysicsApplication::update( real_t delta_time )
 {
     // copy camera over from camera control (if not raytracing)
     camera_control.update( delta_time );
+    
+    if (gameplane_control.gameplane != NULL)
+        gameplane_control.update( delta_time ); // added by m.ji
     scene.camera = camera_control.camera;
 
     static const size_t NUM_ITER = 20;
 
+    if ( scene.get_physics()->getIsGameOver() )
+        gameover = true;
+
     // step the simulation
-    if ( !pause ) {
+    if ( !pause && !gameover ) {
         real_t step_size = delta_time / NUM_ITER;
         for ( size_t i = 0; i < NUM_ITER; i++ ) {
             scene.update( step_size * speed );
@@ -219,6 +235,8 @@ void PhysicsApplication::render()
 void PhysicsApplication::handle_event( const SDL_Event& event )
 {
     camera_control.handle_event( this, event );
+    if (gameplane_control.gameplane != NULL)
+        gameplane_control.handle_event( this, event );  // for game. m.ji
 
     switch ( event.type )
     {

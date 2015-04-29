@@ -141,12 +141,36 @@ application/CMakeFiles/application.dir/scene_loader.cpp.o.provides: application/
 
 application/CMakeFiles/application.dir/scene_loader.cpp.o.provides.build: application/CMakeFiles/application.dir/scene_loader.cpp.o
 
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: application/CMakeFiles/application.dir/flags.make
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o: /home/jd/Desktop/p4/src/application/gameplane_roam.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object application/CMakeFiles/application.dir/gameplane_roam.cpp.o"
+	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/application.dir/gameplane_roam.cpp.o -c /home/jd/Desktop/p4/src/application/gameplane_roam.cpp
+
+application/CMakeFiles/application.dir/gameplane_roam.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/application.dir/gameplane_roam.cpp.i"
+	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/application/gameplane_roam.cpp > CMakeFiles/application.dir/gameplane_roam.cpp.i
+
+application/CMakeFiles/application.dir/gameplane_roam.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/application.dir/gameplane_roam.cpp.s"
+	cd /home/jd/Desktop/p4/build/application && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/application/gameplane_roam.cpp -o CMakeFiles/application.dir/gameplane_roam.cpp.s
+
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o.requires:
+.PHONY : application/CMakeFiles/application.dir/gameplane_roam.cpp.o.requires
+
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o.provides: application/CMakeFiles/application.dir/gameplane_roam.cpp.o.requires
+	$(MAKE) -f application/CMakeFiles/application.dir/build.make application/CMakeFiles/application.dir/gameplane_roam.cpp.o.provides.build
+.PHONY : application/CMakeFiles/application.dir/gameplane_roam.cpp.o.provides
+
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o.provides.build: application/CMakeFiles/application.dir/gameplane_roam.cpp.o
+
 # Object files for target application
 application_OBJECTS = \
 "CMakeFiles/application.dir/application.cpp.o" \
 "CMakeFiles/application.dir/camera_roam.cpp.o" \
 "CMakeFiles/application.dir/imageio.cpp.o" \
-"CMakeFiles/application.dir/scene_loader.cpp.o"
+"CMakeFiles/application.dir/scene_loader.cpp.o" \
+"CMakeFiles/application.dir/gameplane_roam.cpp.o"
 
 # External object files for target application
 application_EXTERNAL_OBJECTS =
@@ -155,6 +179,7 @@ application/libapplication.a: application/CMakeFiles/application.dir/application
 application/libapplication.a: application/CMakeFiles/application.dir/camera_roam.cpp.o
 application/libapplication.a: application/CMakeFiles/application.dir/imageio.cpp.o
 application/libapplication.a: application/CMakeFiles/application.dir/scene_loader.cpp.o
+application/libapplication.a: application/CMakeFiles/application.dir/gameplane_roam.cpp.o
 application/libapplication.a: application/CMakeFiles/application.dir/build.make
 application/libapplication.a: application/CMakeFiles/application.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libapplication.a"
@@ -169,6 +194,7 @@ application/CMakeFiles/application.dir/requires: application/CMakeFiles/applicat
 application/CMakeFiles/application.dir/requires: application/CMakeFiles/application.dir/camera_roam.cpp.o.requires
 application/CMakeFiles/application.dir/requires: application/CMakeFiles/application.dir/imageio.cpp.o.requires
 application/CMakeFiles/application.dir/requires: application/CMakeFiles/application.dir/scene_loader.cpp.o.requires
+application/CMakeFiles/application.dir/requires: application/CMakeFiles/application.dir/gameplane_roam.cpp.o.requires
 .PHONY : application/CMakeFiles/application.dir/requires
 
 application/CMakeFiles/application.dir/clean:

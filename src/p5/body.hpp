@@ -18,12 +18,16 @@ public:
     Vector3 velocity;
     Vector3 angular_velocity;
 
-    Vector3 gravity; //added by jd
-
     virtual ~Body() { }
     virtual Vector3 step_position( real_t dt, real_t motion_damping ) = 0;
     virtual Vector3 step_orientation( real_t dt, real_t motion_damping ) = 0;
     virtual void apply_force( const Vector3& f, const Vector3& offset ) = 0;
+
+    // for gameplane. added by m.ji
+    void translate( const Vector3& v )
+    {
+        position += orientation * v;
+    }
 };
 
 }

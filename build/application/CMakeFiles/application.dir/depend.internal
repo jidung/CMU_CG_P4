@@ -57,6 +57,29 @@ application/CMakeFiles/application.dir/camera_roam.cpp.o
  /usr/include/SDL/SDL_video.h
  /usr/include/SDL/begin_code.h
  /usr/include/SDL/close_code.h
+application/CMakeFiles/application.dir/gameplane_roam.cpp.o
+ /home/jd/Desktop/p4/src/application/application.hpp
+ /home/jd/Desktop/p4/src/application/gameplane_roam.cpp
+ /home/jd/Desktop/p4/src/application/gameplane_roam.hpp
+ /home/jd/Desktop/p4/src/math/math.hpp
+ /home/jd/Desktop/p4/src/math/quaternion.hpp
+ /home/jd/Desktop/p4/src/math/vector.hpp
+ /home/jd/Desktop/p4/src/p5/body.hpp
+ /usr/include/SDL/SDL_active.h
+ /usr/include/SDL/SDL_config.h
+ /usr/include/SDL/SDL_error.h
+ /usr/include/SDL/SDL_events.h
+ /usr/include/SDL/SDL_joystick.h
+ /usr/include/SDL/SDL_keyboard.h
+ /usr/include/SDL/SDL_keysym.h
+ /usr/include/SDL/SDL_mouse.h
+ /usr/include/SDL/SDL_platform.h
+ /usr/include/SDL/SDL_quit.h
+ /usr/include/SDL/SDL_rwops.h
+ /usr/include/SDL/SDL_stdinc.h
+ /usr/include/SDL/SDL_video.h
+ /usr/include/SDL/begin_code.h
+ /usr/include/SDL/close_code.h
 application/CMakeFiles/application.dir/imageio.cpp.o
  /home/jd/Desktop/p4/src/application/application.hpp
  /home/jd/Desktop/p4/src/application/imageio.cpp

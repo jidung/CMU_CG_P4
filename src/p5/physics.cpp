@@ -15,6 +15,7 @@ Physics::~Physics()
 void Physics::step( real_t dt )
 {
     bool didCollide = false;
+    elapsed_time += dt;
 
     for ( SphereList::iterator i = spheres.begin(); i != spheres.end(); i++ ) {
         (*i)->force = Vector3::Zero();
@@ -37,11 +38,23 @@ void Physics::step( real_t dt )
         
         for ( TriangleList::iterator j = triangles.begin(); j != triangles.end(); j++ ) 
         {
-            didCollide |= collides ( *(*i), *(*j), collision_damping );
+            bool didTriangleCollide = collides ( *(*i), *(*j), collision_damping );
+
+            if ( ( (*j)->id == 999 || (*j)->id == 1000 ) && didTriangleCollide )
+            {
+                isGameOver = true;
+                std::cout << "GAME OVER!!!" << std::endl;
+                std::cout << "Elapsed Time: " << elapsed_time << " seconds (developer's best: 22.2367)" << std::endl;
+                std::cout << "Press ESC to quit" << std::endl;
+            }
+
+            didCollide |= didTriangleCollide;
         }
 
         for ( ModelList::iterator j = models.begin(); j != models.end(); j++ ) {
+            (*j)->model->update_matrices_and_aabb();
             didCollide |= collides ( *(*i), *(*j), collision_damping );
+            (*j)->model->position = (*j)->position;
         }
        
         //if (didCollide) 
@@ -111,11 +124,11 @@ void Physics::step( real_t dt )
             Quaternion delta_orientation( axis, magnitude );
             (*i)->orientation = normalize( (*i)->orientation * delta_orientation );
         } 
-        
+       /* 
         else {
             Quaternion identity = Quaternion::Identity();
             (*i)->orientation = identity;
-        }
+        }*/
         /* Euler method
         (*i)->position = (*i)->step_position(dt, 0.001);
         (*i)->step_orientation(dt, 0);
@@ -226,8 +239,12 @@ void Physics::reset()
 
     gravity = Vector3::Zero();
 	collision_damping = 0.0;
+
+    /* m.ji */
     motion_damping = 0.0;
     rotation_damping = 0.0;
+    isGameOver = false;
+    elapsed_time = 0.0;
 }
 
 }

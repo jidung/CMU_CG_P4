@@ -14,7 +14,7 @@
 
     <ambient_light r="0.2" g="0.2" b="0.2"/>
     
-    <gravity x="0" y="0" z="0"/> 
+    <gravity x="0" y="-9.8" z="0"/> 
 
     <point_light>
         <position x="1.0" y="3.0" z="12.0"/>
@@ -67,29 +67,44 @@
         <specular r="0.0" g="1.0" b="1.0"/>
         <refractive_index v="0.0"/>
     </material>
+    
+    <material name="white">
+        <ambient r="1.0" g="1.0" b="1.0"/>
+        <diffuse r="1.0" g="1.0" b="1.0"/>
+        <specular r="0.0" g="0.0" b="0.0"/>
+        <refractive_index v="0.0"/>
+    </material>
+
+    <material name="swhite">
+        <ambient r="1.0" g="1.0" b="1.0"/>
+        <diffuse r="1.0" g="1.0" b="1.0"/>
+        <specular r="0.0" g="1.0" b="1.0"/>
+        <refractive_index v="0.0"/>
+    </material>
 
     <mesh name="cube" filename="models/cube.obj"/>
 
-    <sphere material="sred">
-        <position x="4.0" y="0.0" z="0.0"/>
+    <sphere material="sblue">
+        <position x="4.0" y="10.0" z="0.0"/>
         <radius v="1.0"/>
         <body>
             <id i="1"/>
-            <velocity x="4.0" y="2.0" z="0.0"/>
+            <velocity x="4.0" y="2.0" z="1.0"/>
             <mass v="1.0"/>
         </body>
     </sphere>
 
-    <sphere material="sred">
-        <position x="-2.0" y="0.0" z="5.0"/>
+    <sphere material="sblue">
+        <position x="4.0" y="8.0" z="2.0"/>
         <radius v="1.0"/>
         <body>
             <id i="2"/>
-            <velocity x="4.0" y="2.0" z="0.0"/>
+            <velocity x="4.0" y="2.0" z="-2.0"/>
             <mass v="1.0"/>
         </body>
     </sphere>
 
+    <!--
     <sphere material="sblue">
         <position x="6.0" y="5.0" z="4.0"/>
         <radius v="1.0"/>
@@ -110,7 +125,7 @@
         </body>
     </sphere>
 
-    <sphere material="sgreen">
+    <sphere material="sblue">
         <position x="2.0" y="9.0" z="0.0"/>
         <radius v="1.0"/>
         <body>
@@ -119,7 +134,7 @@
             <mass v="1.0"/>
         </body>
     </sphere>
-
+    -->
     <vertex name="p1" material="red">
         <position x="8.0" y="-2.0" z="-8.0"/>
         <normal x="0.0" y="1.0" z="0.0"/>
@@ -150,7 +165,7 @@
         <vertex name="p2"/>
         <vertex name="p3"/>
         <body>
-            <id i="6"/>
+            <id i="999"/>
         </body>
     </triangle>
     
@@ -160,29 +175,29 @@
         <vertex name="p2"/>
         <vertex name="p4"/>
         <body>
-            <id i="7"/>
+            <id i="1000"/>
         </body>
     </triangle>
     
-    <vertex name="p5" material="red">
+    <vertex name="p5" material="white">
         <position x="8.0" y="14.0" z="-8.0"/>
         <normal x="0.0" y="-1.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p6" material="red">
+    <vertex name="p6" material="white">
         <position x="-8.0" y="14.0" z="-8.0"/>
         <normal x="0.0" y="-1.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p7" material="red">
+    <vertex name="p7" material="white">
         <position x="8.0" y="14.0" z="8.0"/>
         <normal x="0.0" y="-1.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p8" material="red">
+    <vertex name="p8" material="white">
         <position x="-8.0" y="14.0" z="8.0"/>
         <normal x="0.0" y="-1.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
@@ -198,7 +213,7 @@
         </body>
     </triangle>
     
-    <triangle material="red">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p7"/>
         <vertex name="p8"/>
@@ -208,31 +223,31 @@
         </body>
     </triangle>
 
-    <vertex name="p9" material="blue">
+    <vertex name="p9" material="white">
         <position x="8.0" y="-2.0" z="-8.0"/>
         <normal x="-1.0" y="0.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p10" material="blue">
+    <vertex name="p10" material="white">
         <position x="8.0" y="-2.0" z="8.0"/>
         <normal x="-1.0" y="0.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p11" material="blue">
+    <vertex name="p11" material="white">
         <position x="8.0" y="14.0" z="8.0"/>
         <normal x="-1.0" y="0.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p12" material="blue">
+    <vertex name="p12" material="white">
         <position x="8.0" y="14.0" z="-8.0"/>
         <normal x="-1.0" y=".0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
 
-    <triangle material="blue">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p9"/>
         <vertex name="p10"/>
@@ -242,7 +257,7 @@
         </body>
     </triangle>
     
-    <triangle material="blue">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p11"/>
         <vertex name="p12"/>
@@ -252,31 +267,31 @@
         </body>
     </triangle>
         
-    <vertex name="p13" material="blue">
+    <vertex name="p13" material="white">
         <position x="-8.0" y="-2.0" z="-8.0"/>
         <normal x="1.0" y="0.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p14" material="blue">
+    <vertex name="p14" material="white">
         <position x="-8.0" y="-2.0" z="8.0"/>
         <normal x="1.0" y="0.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p15" material="blue">
+    <vertex name="p15" material="white">
         <position x="-8.0" y="14.0" z="8.0"/>
         <normal x="1.0" y="0.0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p16" material="blue">
+    <vertex name="p16" material="white">
         <position x="-8.0" y="14.0" z="-8.0"/>
         <normal x="1.0" y=".0" z="0.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
 
-    <triangle material="blue">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p13"/>
         <vertex name="p15"/>
@@ -286,7 +301,7 @@
         </body>
     </triangle>
     
-    <triangle material="blue">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p16"/>
         <vertex name="p15"/>
@@ -296,31 +311,31 @@
         </body>
     </triangle>
         
-    <vertex name="p17" material="green">
+    <vertex name="p17" material="white">
         <position x="-8.0" y="14.0" z="-8.0"/>
         <normal x="0.0" y="0.0" z="1.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p18" material="green">
+    <vertex name="p18" material="white">
         <position x="8.0" y="14.0" z="-8.0"/>
         <normal x="0.0" y="0.0" z="1.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p19" material="green">
+    <vertex name="p19" material="white">
         <position x="-8.0" y="-2.0" z="-8.0"/>
         <normal x="0.0" y="0.0" z="1.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
         
-    <vertex name="p20" material="green">
+    <vertex name="p20" material="white">
         <position x="8.0" y="-2.0" z="-8.0"/>
         <normal x="0.0" y=".0" z="1.0"/>
         <tex_coord u="0.0" v="0.0"/>
     </vertex>
 
-    <triangle material="green">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p17"/>
         <vertex name="p19"/>
@@ -330,7 +345,7 @@
         </body>
     </triangle>
     
-    <triangle material="blue">
+    <triangle material="white">
         <position x="0.0" y="0.0" z="0.0"/>
         <vertex name="p20"/>
         <vertex name="p18"/>
@@ -348,38 +363,14 @@
 
     <model material="cube" mesh="cube">
         <position x="0.0" y="1.0" z="0.0"/>
-        <orientation a="1.8" x="0.0" y="1.0" z="0.0"/>
+        <orientation a="0.0" x="0.0" y="1.0" z="0.0"/>
+        <scale x="3.0" y="0.1" z="3.0"/>
         <body>
             <position x="0.0" y="1.0" z="0.0"/>
-            <orientation a="1.8" x="0.0" y="1.0" z="0.0"/>
-            <id i="16"/>
+            <orientation a="0.0" x="0.0" y="1.0" z="0.0"/>
+            <id i="9999"/>
         </body>
     </model>
-
-    <model material="cube" mesh="cube">
-        <position x="-5.0" y="6.0" z="-5.0"/>
-        <scale x="2.0" y="2.0" z="2.0"/>
-        <orientation a="3.14159" x="0.0" y="0.0" z="1.0"/>
-        <body>
-            <position x="-5.0" y="6.0" z="-5.0"/>
-            <scale x="2.0" y="2.0" z="2.0"/>
-            <orientation a="3.14159" x="0.0" y="0.0" z="1.0"/>
-            <id i="17"/>
-        </body>
-    </model>
-
-    <model material="cube" mesh="cube">
-        <position x="5.0" y="10.0" z="3.0"/>
-        <scale x="1.5" y="1.5" z="1.5"/>
-        <orientation a="-2.4" x="0.0" y="1.0" z="0.0"/>
-        <body>
-            <position x="5.0" y="10.0" z="3.0"/>
-            <scale x="1.5" y="1.5" z="1.5"/>
-            <orientation a="-2.4" x="0.0" y="1.0" z="0.0"/>
-            <id i="18"/>
-        </body>
-    </model>
-
 
 </scene>
 

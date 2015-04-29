@@ -6,6 +6,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/jd/Desktop/p4/src/application/application.cpp" "/home/jd/Desktop/p4/build/application/CMakeFiles/application.dir/application.cpp.o"
   "/home/jd/Desktop/p4/src/application/camera_roam.cpp" "/home/jd/Desktop/p4/build/application/CMakeFiles/application.dir/camera_roam.cpp.o"
+  "/home/jd/Desktop/p4/src/application/gameplane_roam.cpp" "/home/jd/Desktop/p4/build/application/CMakeFiles/application.dir/gameplane_roam.cpp.o"
   "/home/jd/Desktop/p4/src/application/imageio.cpp" "/home/jd/Desktop/p4/build/application/CMakeFiles/application.dir/imageio.cpp.o"
   "/home/jd/Desktop/p4/src/application/scene_loader.cpp" "/home/jd/Desktop/p4/build/application/CMakeFiles/application.dir/scene_loader.cpp.o"
   )
