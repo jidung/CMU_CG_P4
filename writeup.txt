@@ -7,7 +7,7 @@ Carnegie Mellon University
 ----------------------------------------------------------------------
 
 This program simulates basic physics including collisions, force, torque,
-etc.
+and etc.
 
 command to build:
 cd build && rm -rf * && cmake ../src && make install
@@ -16,34 +16,59 @@ cd build && rm -rf * && cmake ../src && make install
 Implemented Features
 ----------------------------------------------------------------------
 
-All basic requirements are implemented.
+All basic requirements except bounding volume hierarchy are implemented.
 
-- All collision detections
-- Bound Volumes (Axis-Aligned Bounding Boxes)
-- Applying force and torque
+- Collision detections between spheres and other spheres, triangles, planes, and models.
+- Simulation of velocity and angular velocity for spheres along with force and torque
 - Runge-Kutta 4 Integration
 - Springs
+- Gravity
+- Collision damping and spring damping
+- Bounding Volumes (Axis-Aligned Bounding Boxes)
 
 Follwing additional feature is implemented.
 
-- A game "Toss-Da-Balls!"
-	Command to run:
-	./p5 scenes/game.scene
+1) A game "Toss-Da-Balls!"
+
+	Specific description is at the end of this document.
+ 
+ 	Command to run:
+	 $./p5 scenes/game.scene
+
+2) Motion damping and Rotation damping
+
+	Can be tested with following scenes under scenes/ folder.
+	
+	newtons_cradle_damping.scene
+	rotation_test_damping.scene
+	collision_damping.scene
+	spring_rotation_damping.scene
 
 ----------------------------------------------------------------------
 Design Decisions
 ----------------------------------------------------------------------
 
-Design Directions
+ One of the major goals was utilizing provided structure as much as possible.
+ SphereBody::step_position() was used for Euler method integration first,
+but soon altered with RK4 functions in Physics class. Ohter code schemes
+such as SphereBody::apply_force() or Spring::step() were mostly maintained
+and used with modification.
 
-- Utilize provided structure as much as possible.
-- Reduce unnecessary operations (eg. constructing transform matrix every frame)
- as much as possible.
+RK4 Integrator
 
-Bounding Volume Hierarchy
+- To make RK4 integrate general-purpose, Physics::rk4() in Physics class uses
+	function pointer given as an argument. Phyics::evaluate() is being plugged
+	in to rk4() function to evaluate derivative at each step.
 
-- Axis-Aligned Bounding Boxes
-	Created AABB data structure in Geometry class.
+	 However, for angular velocity and orientation, the function was expanded
+	inside Physics::step() because it was tricky to generalize the case since
+	cross product of angular velocity does not matches with orientation directly.
+
+
+Bounding Volumes and Bounding Volume Hierarchy
+
+- Axis-Aligned Bounding Boxes and Transformation Matrices
+	AABB data structure is added in Geometry class.
 	AABBs are constructed in main.cpp, with a function call make_AABB().
 	This process is done in PhysicsApplication::initialize(), after all the
 	meshes are loaded into the scene object.
@@ -61,28 +86,22 @@ Bounding Volume Hierarchy
 - "Broad phase" pass
 	"Broad phase" pass is not implemented because of the following reasons.
 	
-	A simple octree structure was reviewed but because of the characteristics
-	of scenes provided that there are not many bounding boxes, it was possible 
-	to expect that the structure will harm the performance.
+	A simple octree structure was considered but because of the characteristics
+	of scenes provided that there are not many bounding boxes and the fact that
+	spheres are moving constantly, it was possible to expect that the structure 
+	will not make performance improvement.
 
 	Adaptive loose octrees or Kd-trees were likely enhance performance but it was hard
 	to expect dramatic performance change compared to the cost of implementation.
 
-RK4 Integrator
 
-- To make RK4 integrate general-purpose, Physics::rk4() in physics.hpp
-uses function pointer given as an argument. Phyics::evaluate() is being plugged
-in to rk4() function to evaluate derivative at each step.
-- However, for angular velocity and orientation, the function was expanded
-inside Physics::step() because it was tricky to generalize the case since
-cross product of angular velocity does not matches with orientation directly.
 
 ---------------------------------------------------------------------
 Additional Feature - A simple game ("Toss-Da-Balls!")
 ----------------------------------------------------------------------
 
 1) How to Run
-	build the project and run with the command './p5 scenes/game.scene'
+	build the project and run with the command '$./p5 scenes/game.scene'
 
 2) Rule
 	You have to control a pad and block balls from hitting the deadly red ground.
@@ -98,12 +117,17 @@ Additional Feature - A simple game ("Toss-Da-Balls!")
 4) Implementation
 
 - application/camera_roam.cpp and hpp were copied and modified to create control for 
-the pad (gameplane)
+the game pad (gameplane).
+
 - transform matrix and inverse transform matrix is recalculated every physics step 
 to translate AABB and vertices of the pad (p5/physics.cpp)
-- p5/main.cpp was modified to instantiate gameplane_roam object
-- game is over when a ball hits the ground. Shell prompts "GAME OVER!!!" message and \
+
+- p5/main.cpp was modified to instantiate gameplane_roam object and handle events 
+and update.
+
+- game is over when a ball hits the ground. Shell prompts "GAME OVER!!!" message and 
 elapsed time. 
+
 - CMakefielList.txt under /src/application/ is modified to include gameplane_roam.cpp 
 and gameplane_roam.hpp to the build structure
 

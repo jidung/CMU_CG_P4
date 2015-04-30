@@ -92,6 +92,8 @@ static const char STR_OFFSET1[] = "offset1";
 static const char STR_OFFSET2[] = "offset2";
 static const char STR_COLLISIONDAMPING[] = "collision_damping";
 static const char STR_DAMPING[] = "damping";
+static const char STR_MOTIONDAMPING[] = "motion_damping";
+static const char STR_ROTATIONDAMPING[] = "rotation_damping";
 
 static void print_error_header( const TiXmlElement* base )
 {
@@ -485,8 +487,15 @@ bool load_scene( Scene* scene, const char* filename )
         parse_elem( root, false, STR_AMLIGHT, &scene->ambient_light );
         // parse gravitational constant
         parse_elem( root, false, STR_GRAVITY, &scene->get_physics()->gravity );
-		// parse damping constants
-		parse_elem( root, false, STR_COLLISIONDAMPING, &scene->get_physics()->collision_damping );
+	// parse damping constants
+	parse_elem (root, false, STR_COLLISIONDAMPING,
+	    &scene->get_physics ()->collision_damping);
+
+	// parse more damping constants. added by m.ji	
+	parse_elem (root, false, STR_MOTIONDAMPING,
+	    &scene->get_physics ()->motion_damping);
+	parse_elem (root, false, STR_ROTATIONDAMPING,
+	    &scene->get_physics ()->rotation_damping);
 
         // parse the lights
         elem = root->FirstChildElement( STR_PLIGHT );

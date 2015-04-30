@@ -70,7 +70,10 @@ void Physics::step( real_t dt )
        
         Vector3 initial_pos = (*i)->position;
       
-        /*
+        (*i)->velocity = rk4(&Physics::evaluate, initial_vel, (*i)->force/(*i)->mass, dt) * (1 - motion_damping);
+        (*i)->position = rk4(&Physics::evaluate, initial_pos, initial_vel, dt);
+        
+	/* expanded version of RK4 - not used
         Vector3 k1, k2, k3, k4;
         Vector3 k1_p, k2_p, k3_p, k4_p; // for position
 
@@ -85,9 +88,7 @@ void Physics::step( real_t dt )
 
         (*i)->velocity = initial_vel + (k1*(1.0/6.0) + k2*(1.0/3.0) + k3*(1.0/3.0) + k4*(1.0/6.0)) * dt;
         (*i)->position = initial_pos + (k1_p*(1.0/6.0) + k2_p*(1.0/3.0) + k3_p*(1.0/3.0) + k4_p*(1.0/6.0)) * dt;
-*/
-        (*i)->velocity = rk4(&Physics::evaluate, initial_vel, (*i)->force/(*i)->mass, dt);
-        (*i)->position = rk4(&Physics::evaluate, initial_pos, initial_vel, dt);
+	*/
 
 
         // Expanded version of RK4 for angular velocity and angular orientation integration
@@ -105,10 +106,10 @@ void Physics::step( real_t dt )
         
         (*i)->angular_velocity = 
             initial_avel + (k1_a*(1.0/6.0) + k2_a*(1.0/3.0) + k3_a*(1.0/3.0) + k4_a*(1.0/6.0)) * dt;
-        
-        Vector3 spin = 
-            (k1_s*(1.0/6.0) + k2_s*(1.0/3.0) + k3_s*(1.0/3.0) + k4_s*(1.0/6.0)) * dt;
+	(*i)->angular_velocity *= (1 - rotation_damping);       
 
+	// to get orientation 
+        Vector3 spin = (k1_s*(1.0/6.0) + k2_s*(1.0/3.0) + k3_s*(1.0/3.0) + k4_s*(1.0/6.0)) * dt;
         Vector3 axis = normalize( spin ); 
         real_t magnitude = length( spin );
         
@@ -124,12 +125,8 @@ void Physics::step( real_t dt )
             Quaternion delta_orientation( axis, magnitude );
             (*i)->orientation = normalize( (*i)->orientation * delta_orientation );
         } 
-       /* 
-        else {
-            Quaternion identity = Quaternion::Identity();
-            (*i)->orientation = identity;
-        }*/
-        /* Euler method
+        
+	/* Euler method
         (*i)->position = (*i)->step_position(dt, 0.001);
         (*i)->step_orientation(dt, 0);
         */

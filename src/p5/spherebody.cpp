@@ -40,7 +40,7 @@ Vector3 SphereBody::step_position( real_t dt, real_t motion_damping )
     return deltaPos;
 }
 
-Vector3 SphereBody::acceleration( real_t dt, Vector3 velocity)
+Vector3 SphereBody::acceleration( real_t dt, Vector3 velocity )
 {
 //    return velocity * motion_damping * dt;
     //return (velocity + (force/mass) ) * motion_damping;
@@ -49,7 +49,7 @@ Vector3 SphereBody::acceleration( real_t dt, Vector3 velocity)
     return (velocity * dt + (force/mass) );
 }
 
-Vector3 SphereBody::angular_acceleration( real_t dt, Vector3 angular_velocity)
+Vector3 SphereBody::angular_acceleration( real_t dt, Vector3 angular_velocity )
 {
     return (angular_velocity * dt + angular_accel);
 }

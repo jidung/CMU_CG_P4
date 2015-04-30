@@ -168,7 +168,7 @@ bool collides( SphereBody& body1, PlaneBody& body2, real_t collision_damping )
         body1.velocity = u * (1 - collision_damping);
         if ( squared_length (body1.velocity) < EPS )
             body1.velocity = Vector3::Zero();
-        std::cout << "Sphere-Plane collision detected" << std::endl;
+        //std::cout << "Sphere-Plane collision detected" << std::endl;
         return true;
     }
 	return false;

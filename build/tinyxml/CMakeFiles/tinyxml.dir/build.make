@@ -34,11 +34,14 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
+CMAKE_SOURCE_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
+CMAKE_BINARY_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build
 
 # Include any dependencies generated for this target.
 include tinyxml/CMakeFiles/tinyxml.dir/depend.make
@@ -50,18 +53,18 @@ include tinyxml/CMakeFiles/tinyxml.dir/progress.make
 include tinyxml/CMakeFiles/tinyxml.dir/flags.make
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o: tinyxml/CMakeFiles/tinyxml.dir/flags.make
-tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o: /home/jd/Desktop/p4/src/tinyxml/tinyxml.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_1)
+tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxml.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/tinyxml.dir/tinyxml.cpp.o -c /home/jd/Desktop/p4/src/tinyxml/tinyxml.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/tinyxml.dir/tinyxml.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxml.cpp
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyxml.dir/tinyxml.cpp.i"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/tinyxml/tinyxml.cpp > CMakeFiles/tinyxml.dir/tinyxml.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxml.cpp > CMakeFiles/tinyxml.dir/tinyxml.cpp.i
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyxml.dir/tinyxml.cpp.s"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/tinyxml/tinyxml.cpp -o CMakeFiles/tinyxml.dir/tinyxml.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxml.cpp -o CMakeFiles/tinyxml.dir/tinyxml.cpp.s
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o.requires:
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o.requires
@@ -73,18 +76,18 @@ tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o.provides: tinyxml/CMakeFiles/tinyxm
 tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o.provides.build: tinyxml/CMakeFiles/tinyxml.dir/tinyxml.cpp.o
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o: tinyxml/CMakeFiles/tinyxml.dir/flags.make
-tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o: /home/jd/Desktop/p4/src/tinyxml/tinyxmlerror.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_2)
+tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlerror.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o -c /home/jd/Desktop/p4/src/tinyxml/tinyxmlerror.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlerror.cpp
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.i"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/tinyxml/tinyxmlerror.cpp > CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlerror.cpp > CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.i
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.s"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/tinyxml/tinyxmlerror.cpp -o CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlerror.cpp -o CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.s
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o.requires:
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o.requires
@@ -96,18 +99,18 @@ tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o.provides: tinyxml/CMakeFiles/t
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o.provides.build: tinyxml/CMakeFiles/tinyxml.dir/tinyxmlerror.cpp.o
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o: tinyxml/CMakeFiles/tinyxml.dir/flags.make
-tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o: /home/jd/Desktop/p4/src/tinyxml/tinyxmlparser.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jd/Desktop/p4/build/CMakeFiles $(CMAKE_PROGRESS_3)
+tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlparser.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o -c /home/jd/Desktop/p4/src/tinyxml/tinyxmlparser.cpp
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o -c /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlparser.cpp
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.i"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jd/Desktop/p4/src/tinyxml/tinyxmlparser.cpp > CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.i
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlparser.cpp > CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.i
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.s"
-	cd /home/jd/Desktop/p4/build/tinyxml && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jd/Desktop/p4/src/tinyxml/tinyxmlparser.cpp -o CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.s
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && /usr/lib64/ccache/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml/tinyxmlparser.cpp -o CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.s
 
 tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o.requires:
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o.requires
@@ -133,8 +136,8 @@ tinyxml/libtinyxml.a: tinyxml/CMakeFiles/tinyxml.dir/tinyxmlparser.cpp.o
 tinyxml/libtinyxml.a: tinyxml/CMakeFiles/tinyxml.dir/build.make
 tinyxml/libtinyxml.a: tinyxml/CMakeFiles/tinyxml.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libtinyxml.a"
-	cd /home/jd/Desktop/p4/build/tinyxml && $(CMAKE_COMMAND) -P CMakeFiles/tinyxml.dir/cmake_clean_target.cmake
-	cd /home/jd/Desktop/p4/build/tinyxml && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tinyxml.dir/link.txt --verbose=$(VERBOSE)
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && $(CMAKE_COMMAND) -P CMakeFiles/tinyxml.dir/cmake_clean_target.cmake
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tinyxml.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 tinyxml/CMakeFiles/tinyxml.dir/build: tinyxml/libtinyxml.a
@@ -146,10 +149,10 @@ tinyxml/CMakeFiles/tinyxml.dir/requires: tinyxml/CMakeFiles/tinyxml.dir/tinyxmlp
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/requires
 
 tinyxml/CMakeFiles/tinyxml.dir/clean:
-	cd /home/jd/Desktop/p4/build/tinyxml && $(CMAKE_COMMAND) -P CMakeFiles/tinyxml.dir/cmake_clean.cmake
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml && $(CMAKE_COMMAND) -P CMakeFiles/tinyxml.dir/cmake_clean.cmake
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/clean
 
 tinyxml/CMakeFiles/tinyxml.dir/depend:
-	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jd/Desktop/p4/src /home/jd/Desktop/p4/src/tinyxml /home/jd/Desktop/p4/build /home/jd/Desktop/p4/build/tinyxml /home/jd/Desktop/p4/build/tinyxml/CMakeFiles/tinyxml.dir/DependInfo.cmake --color=$(COLOR)
+	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src/tinyxml /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml/CMakeFiles/tinyxml.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tinyxml/CMakeFiles/tinyxml.dir/depend
 

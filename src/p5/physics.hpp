@@ -20,8 +20,8 @@ class Physics
 {
 public:
     Vector3 gravity;
-	real_t collision_damping;
-	real_t motion_damping;  // m.ji
+    real_t collision_damping;
+    real_t motion_damping;  // m.ji
     real_t rotation_damping; // m.ji
     Body* gameplane; // m.ji
 
