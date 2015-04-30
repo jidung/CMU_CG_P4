@@ -65,8 +65,17 @@ Bounding Volume Hierarchy
 	of scenes provided that there are not many bounding boxes, it was possible 
 	to expect that the structure will harm the performance.
 
-	Adaptive octree or Kd-tree were likely enhance performance but it was hard
+	Adaptive loose octrees or Kd-trees were likely enhance performance but it was hard
 	to expect dramatic performance change compared to the cost of implementation.
+
+RK4 Integrator
+
+- To make RK4 integrate general-purpose, Physics::rk4() in physics.hpp
+uses function pointer given as an argument. Phyics::evaluate() is being plugged
+in to rk4() function to evaluate derivative at each step.
+- However, for angular velocity and orientation, the function was expanded
+inside Physics::step() because it was tricky to generalize the case since
+cross product of angular velocity does not matches with orientation directly.
 
 ---------------------------------------------------------------------
 Additional Feature - A simple game ("Toss-Da-Balls!")

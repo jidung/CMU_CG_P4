@@ -38,22 +38,19 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
+CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build
+CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -113,14 +110,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -E cmake_progress_start /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/scene/CMakeFiles/progress.marks
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 scene/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles 0
+	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles /home/jd/Desktop/p4/build/scene/CMakeFiles/progress.marks
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 scene/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 scene/clean
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 scene/clean
 .PHONY : clean
 
 # The main clean target
@@ -129,22 +126,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 scene/preinstall
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 scene/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 scene/preinstall
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 scene/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 scene/CMakeFiles/scene.dir/rule:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f CMakeFiles/Makefile2 scene/CMakeFiles/scene.dir/rule
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f CMakeFiles/Makefile2 scene/CMakeFiles/scene.dir/rule
 .PHONY : scene/CMakeFiles/scene.dir/rule
 
 # Convenience name for target.
@@ -153,7 +150,7 @@ scene: scene/CMakeFiles/scene.dir/rule
 
 # fast build rule for target.
 scene/fast:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/build
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/build
 .PHONY : scene/fast
 
 geometry.o: geometry.cpp.o
@@ -161,7 +158,7 @@ geometry.o: geometry.cpp.o
 
 # target to build an object file
 geometry.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/geometry.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/geometry.cpp.o
 .PHONY : geometry.cpp.o
 
 geometry.i: geometry.cpp.i
@@ -169,7 +166,7 @@ geometry.i: geometry.cpp.i
 
 # target to preprocess a source file
 geometry.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/geometry.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/geometry.cpp.i
 .PHONY : geometry.cpp.i
 
 geometry.s: geometry.cpp.s
@@ -177,7 +174,7 @@ geometry.s: geometry.cpp.s
 
 # target to generate assembly for a file
 geometry.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/geometry.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/geometry.cpp.s
 .PHONY : geometry.cpp.s
 
 material.o: material.cpp.o
@@ -185,7 +182,7 @@ material.o: material.cpp.o
 
 # target to build an object file
 material.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/material.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/material.cpp.o
 .PHONY : material.cpp.o
 
 material.i: material.cpp.i
@@ -193,7 +190,7 @@ material.i: material.cpp.i
 
 # target to preprocess a source file
 material.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/material.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/material.cpp.i
 .PHONY : material.cpp.i
 
 material.s: material.cpp.s
@@ -201,7 +198,7 @@ material.s: material.cpp.s
 
 # target to generate assembly for a file
 material.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/material.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/material.cpp.s
 .PHONY : material.cpp.s
 
 mesh.o: mesh.cpp.o
@@ -209,7 +206,7 @@ mesh.o: mesh.cpp.o
 
 # target to build an object file
 mesh.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/mesh.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/mesh.cpp.o
 .PHONY : mesh.cpp.o
 
 mesh.i: mesh.cpp.i
@@ -217,7 +214,7 @@ mesh.i: mesh.cpp.i
 
 # target to preprocess a source file
 mesh.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/mesh.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/mesh.cpp.i
 .PHONY : mesh.cpp.i
 
 mesh.s: mesh.cpp.s
@@ -225,7 +222,7 @@ mesh.s: mesh.cpp.s
 
 # target to generate assembly for a file
 mesh.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/mesh.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/mesh.cpp.s
 .PHONY : mesh.cpp.s
 
 model.o: model.cpp.o
@@ -233,7 +230,7 @@ model.o: model.cpp.o
 
 # target to build an object file
 model.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/model.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/model.cpp.o
 .PHONY : model.cpp.o
 
 model.i: model.cpp.i
@@ -241,7 +238,7 @@ model.i: model.cpp.i
 
 # target to preprocess a source file
 model.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/model.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/model.cpp.i
 .PHONY : model.cpp.i
 
 model.s: model.cpp.s
@@ -249,7 +246,7 @@ model.s: model.cpp.s
 
 # target to generate assembly for a file
 model.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/model.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/model.cpp.s
 .PHONY : model.cpp.s
 
 scene.o: scene.cpp.o
@@ -257,7 +254,7 @@ scene.o: scene.cpp.o
 
 # target to build an object file
 scene.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/scene.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/scene.cpp.o
 .PHONY : scene.cpp.o
 
 scene.i: scene.cpp.i
@@ -265,7 +262,7 @@ scene.i: scene.cpp.i
 
 # target to preprocess a source file
 scene.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/scene.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/scene.cpp.i
 .PHONY : scene.cpp.i
 
 scene.s: scene.cpp.s
@@ -273,7 +270,7 @@ scene.s: scene.cpp.s
 
 # target to generate assembly for a file
 scene.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/scene.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/scene.cpp.s
 .PHONY : scene.cpp.s
 
 sphere.o: sphere.cpp.o
@@ -281,7 +278,7 @@ sphere.o: sphere.cpp.o
 
 # target to build an object file
 sphere.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/sphere.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/sphere.cpp.o
 .PHONY : sphere.cpp.o
 
 sphere.i: sphere.cpp.i
@@ -289,7 +286,7 @@ sphere.i: sphere.cpp.i
 
 # target to preprocess a source file
 sphere.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/sphere.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/sphere.cpp.i
 .PHONY : sphere.cpp.i
 
 sphere.s: sphere.cpp.s
@@ -297,7 +294,7 @@ sphere.s: sphere.cpp.s
 
 # target to generate assembly for a file
 sphere.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/sphere.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/sphere.cpp.s
 .PHONY : sphere.cpp.s
 
 triangle.o: triangle.cpp.o
@@ -305,7 +302,7 @@ triangle.o: triangle.cpp.o
 
 # target to build an object file
 triangle.cpp.o:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/triangle.cpp.o
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/triangle.cpp.o
 .PHONY : triangle.cpp.o
 
 triangle.i: triangle.cpp.i
@@ -313,7 +310,7 @@ triangle.i: triangle.cpp.i
 
 # target to preprocess a source file
 triangle.cpp.i:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/triangle.cpp.i
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/triangle.cpp.i
 .PHONY : triangle.cpp.i
 
 triangle.s: triangle.cpp.s
@@ -321,7 +318,7 @@ triangle.s: triangle.cpp.s
 
 # target to generate assembly for a file
 triangle.cpp.s:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/triangle.cpp.s
+	cd /home/jd/Desktop/p4/build && $(MAKE) -f scene/CMakeFiles/scene.dir/build.make scene/CMakeFiles/scene.dir/triangle.cpp.s
 .PHONY : triangle.cpp.s
 
 # Help Target
@@ -369,6 +366,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/jd/Desktop/p4/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

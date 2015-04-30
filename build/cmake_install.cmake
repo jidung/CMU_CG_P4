@@ -1,4 +1,4 @@
-# Install script for directory: /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
+# Install script for directory: /home/jd/Desktop/p4/src
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -29,17 +29,16 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
 # Install shared libraries without execute permission?
 IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
+  SET(CMAKE_INSTALL_SO_NO_EXE "1")
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/glew/cmake_install.cmake")
-  INCLUDE("/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/application/cmake_install.cmake")
-  INCLUDE("/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/math/cmake_install.cmake")
-  INCLUDE("/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/p5/cmake_install.cmake")
-  INCLUDE("/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/scene/cmake_install.cmake")
-  INCLUDE("/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/tinyxml/cmake_install.cmake")
+  INCLUDE("/home/jd/Desktop/p4/build/application/cmake_install.cmake")
+  INCLUDE("/home/jd/Desktop/p4/build/math/cmake_install.cmake")
+  INCLUDE("/home/jd/Desktop/p4/build/p5/cmake_install.cmake")
+  INCLUDE("/home/jd/Desktop/p4/build/scene/cmake_install.cmake")
+  INCLUDE("/home/jd/Desktop/p4/build/tinyxml/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -49,7 +48,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/home/jd/Desktop/p4/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/home/jd/Desktop/p4/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

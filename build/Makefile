@@ -38,22 +38,19 @@ RM = /usr/bin/cmake -E remove -f
 # Escaping for special characters.
 EQUALS = =
 
-# The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
-
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/src
+CMAKE_SOURCE_DIR = /home/jd/Desktop/p4/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build
+CMAKE_BINARY_DIR = /home/jd/Desktop/p4/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
+	/usr/bin/cmake -i .
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -113,9 +110,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles /home/jd/Desktop/p4/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /afs/cs.cmu.edu/academic/class/15662-s15-users/minwongj/p4-physics-late1/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jd/Desktop/p4/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -141,19 +138,6 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named glew
-
-# Build rule for target.
-glew: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 glew
-.PHONY : glew
-
-# fast build rule for target.
-glew/fast:
-	$(MAKE) -f glew/CMakeFiles/glew.dir/build.make glew/CMakeFiles/glew.dir/build
-.PHONY : glew/fast
 
 #=============================================================================
 # Target rules for targets named application
@@ -232,7 +216,6 @@ help:
 	@echo "... install/strip"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... glew"
 	@echo "... application"
 	@echo "... math"
 	@echo "... p5"
